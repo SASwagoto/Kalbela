@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f933c3a5793c1326f7ceda75d90e456",
+    "content-hash": "fd293614b3d191177a4cd4b18daef110",
     "packages": [
         {
             "name": "brick/math",
@@ -3183,6 +3183,112 @@
                 }
             ],
             "time": "2023-11-08T05:53:05+00:00"
+        },
+        {
+            "name": "ronisaha/easy-bangla-date",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ronisaha/easy-bangla-date.git",
+                "reference": "1b4132af4890a7a726e9e366f4594b93a037c806"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ronisaha/easy-bangla-date/zipball/1b4132af4890a7a726e9e366f4594b93a037c806",
+                "reference": "1b4132af4890a7a726e9e366f4594b93a037c806",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.3.*",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EasyBanglaDate\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roni Saha",
+                    "email": "roni.cse@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Extended DateTime Class For Bangla Date and Time",
+            "homepage": "http://ronisaha.github.io/easy-bangla-date/",
+            "keywords": [
+                "Bangla",
+                "Bangla Date",
+                "Bangla DateTime"
+            ],
+            "support": {
+                "issues": "https://github.com/ronisaha/easy-bangla-date/issues",
+                "source": "https://github.com/ronisaha/easy-bangla-date"
+            },
+            "time": "2017-08-27T15:14:41+00:00"
+        },
+        {
+            "name": "s1k3/bangla-date",
+            "version": "1.07",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/s1k3/laravel_bangla_date.git",
+                "reference": "bfdbddbc4444fd7bb314b190764cb315c6bcbe3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/s1k3/laravel_bangla_date/zipball/bfdbddbc4444fd7bb314b190764cb315c6bcbe3e",
+                "reference": "bfdbddbc4444fd7bb314b190764cb315c6bcbe3e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0||^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "S1K3\\Bangla\\Date\\BanglaDateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helper/bangla_date.php"
+                ],
+                "psr-4": {
+                    "S1K3\\Bangla\\Date\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robin Khan",
+                    "email": "sk118420@gmail.com"
+                }
+            ],
+            "description": "Laravel Library for converting English date to corresponding Bangla Date",
+            "support": {
+                "issues": "https://github.com/s1k3/laravel_bangla_date/issues",
+                "source": "https://github.com/s1k3/laravel_bangla_date/tree/1.07"
+            },
+            "time": "2022-02-21T08:26:45+00:00"
         },
         {
             "name": "symfony/console",
@@ -8187,5 +8293,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
