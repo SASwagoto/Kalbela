@@ -65,16 +65,16 @@
             </div>
          </div>
          <div class="w-1/4">
-            <div class="flex flex-col gap-6 rounded-md p-2 border">
+            <div class="flex flex-col gap-4 rounded-md p-2 border">
                <a href="#" class=" flex flex-col gap-1 ">
                   <div class="rounded-md overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news1.webp')}}" alt="">
                   </div>
                   <div class="mt-1">
-                     <h3 class="text-xl font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
                   </div>
                </a>
-               <a href="#" class=" flex gap-2 ">
+               <a href="#" class="flex gap-2 ">
                   <div class="w-1/3 overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
                   </div>
@@ -82,7 +82,7 @@
                      <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
                   </div>
                </a>
-               <a href="#" class=" flex gap-2 ">
+               <a href="#" class="flex gap-2 ">
                   <div class="w-1/3 overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
                   </div>
@@ -90,7 +90,7 @@
                      <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
                   </div>
                </a>
-               <a href="#" class=" flex gap-2 ">
+               <a href="#" class="flex gap-2 ">
                   <div class="w-1/3 overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news7.webp')}}" alt="">
                   </div>
@@ -98,7 +98,7 @@
                      <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
                   </div>
                </a>
-               <a href="#" class=" flex gap-2 ">
+               <a href="#" class="flex gap-2 ">
                   <div class="w-1/3 overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
                   </div>
@@ -106,7 +106,7 @@
                      <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
                   </div>
                </a>
-               <a href="#" class=" flex gap-2 ">
+               <a href="#" class="flex gap-2 ">
                   <div class="w-1/3 overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
                   </div>
