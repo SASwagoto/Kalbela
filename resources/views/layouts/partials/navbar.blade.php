@@ -39,9 +39,71 @@
         <a href="#">
             অডিও
         </a>
-        <a href="#" class="megamenu">
-            <i class="fa-solid fa-bars"></i>
-        </a>
+        <div class="group">
+            <a href="#" class="megamenu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+
+            <div class="container absolute right-0 left-0 px-4 mx-auto border hidden group-hover:block rounded-md bg-white z-50 shadow-xl">
+                <div class="border-b w-full py-3 flex items-center">
+                    <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
+                </div>
+                <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                </div>
+                <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-video"></i>
+                        ভিডিও স্টোরি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        ফটো স্টোরি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-images"></i>
+                        ফটো গ্যালারি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-film"></i>
+                        ভিডিও গ্যালারি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-brands fa-soundcloud"></i>
+                        অডিও
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -92,8 +154,71 @@
         <a href="#">
             অডিও
         </a>
-        <a href="#" class="megamenu">
-            <i class="fa-solid fa-bars"></i>
-        </a>
+        <div class="group relative">
+            <a href="#" class="megamenu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+
+            <div class="container absolute top-2 px-4 mx-auto border hidden group-hover:block rounded-md bg-white z-50 shadow-xl">
+                <div class="border-b w-full py-3 flex items-center">
+                    <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
+                </div>
+                <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                    <div class="text-start">বাংলাদেশ</div>
+                </div>
+                <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-video"></i>
+                        ভিডিও স্টোরি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        ফটো স্টোরি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-images"></i>
+                        ফটো গ্যালারি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-solid fa-film"></i>
+                        ভিডিও গ্যালারি
+                    </a>
+                    <a href="" class="flex gap-4 text-lg">
+                        <i class="fa-brands fa-soundcloud"></i>
+                        অডিও
+                    </a>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </section>

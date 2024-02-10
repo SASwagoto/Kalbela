@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('content')
-   <section class="w-full mt-4">
+   <section class="w-full mt-4 h-[900px]">
       <div class="container mx-auto flex justify-center gap-2">
          <div class="w-2/4">
             <div class="headnews border rounded-md flex gap-2 p-2">
