@@ -65,7 +65,7 @@
             </div>
          </div>
          <div class="w-1/4">
-            <div class="flex flex-col gap-2 rounded-md p-2 border">
+            <div class="flex flex-col gap-6 rounded-md p-2 border">
                <a href="#" class=" flex flex-col gap-1 ">
                   <div class="rounded-md overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news1.webp')}}" alt="">
