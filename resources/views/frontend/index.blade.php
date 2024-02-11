@@ -1,7 +1,11 @@
 @extends('layouts.web')
 
+@push('css')
+<link rel="stylesheet" href="{{asset('frontend/plugins/swiperjs/swiper-bundle.min.css')}}">  
+@endpush
+
 @section('content')
-   <section class="w-full mt-4">
+   <section class="w-full h-[900px] mt-4">
       <div class="container mx-auto flex justify-center gap-2">
          <div class="w-2/4 flex flex-col gap-4">
             <a href="#" class="headnews border rounded-md flex gap-2 p-2">
@@ -121,3 +125,7 @@
       
    </section>
 @endsection
+
+@push('js')
+    <script src="{{asset('frontend/plugins/swiperjs/swiper-bundle.min.js')}}"></script>
+@endpush
