@@ -155,11 +155,11 @@
             অডিও
         </a>
 
-        <div class="group relative">
+        <div class="group">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>
             </a>
-            <div class="container absolute left-0 right-0 px-4 mx-auto border hidden group-hover:block rounded-md bg-white z-50 shadow-xl">
+            <div class="container absolute right-0 left-0 px-4 mx-auto border hidden group-hover:block rounded-md bg-white z-50 shadow-xl">
                 <div class="border-b w-full py-3 flex items-center">
                     <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
                 </div>
