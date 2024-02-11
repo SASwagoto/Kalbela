@@ -1,14 +1,11 @@
-const nonStickyNav = document.querySelector('.non_sticky_nav');
-const stickyNav = document.querySelector('.sticky_nav');
-
-function scrollFunction() {
-    if (window.scroll > 180) {
-      nonStickyNav.classList.add('hidden');
-      stickyNav.classList.remove('hidden');
-    } else {
-        nonStickyNav.classList.remove('hidden');
-        stickyNav.classList.add('hidden');
-    }
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 150) {
+        //$('#back-top').fadeIn();
+      //$('header.non-sticky').hide();
+      $('.sticky_nav').show();
+  } else {
+      //$('#back-top').fadeOut();
+      $('.sticky_nav').hide();
+      //$('header.non-sticky').show();
   }
-
-  scrollFunction();
+});

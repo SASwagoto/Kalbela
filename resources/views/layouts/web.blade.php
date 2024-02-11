@@ -7,7 +7,7 @@
     <title>কালবেলা । বিডি নিউজ । বাংলা নিউজ</title>
     <link rel="shortcut icon" href="{{asset('frontend/images/favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('frontend/plugins/fontawesome6/css/all.min.css')}}">
-
+    @stack('css')
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -17,6 +17,8 @@
     @include('layouts.partials.navbar')
     @yield('content')
 
+    <script src="{{asset('frontend/js/jquery-3.7.1.min.js')}}"></script>
+    @stack('js')
     <script src="{{asset('frontend/js/main.js')}}"></script>
 </body>
 </html>
