@@ -7,7 +7,7 @@
 @section('content')
    <section class="w-full h-[900px] mt-4">
       <div class="container mx-auto flex justify-center gap-2">
-         <div class="w-2/4">
+         <div class="w-2/4 flex flex-col gap-4">
             <a href="#" class="headnews border rounded-md flex gap-2 p-2">
                <div class="w-3/5 overflow-hidden rounded-md">
                   <img class="w-full" src="{{asset('frontend/images/headnews.jpg')}}" alt="">
@@ -17,15 +17,105 @@
                   <p class="mt-2 text-sm">পাকিস্তানে নির্বাচনে পিছিয়ে থেকেও এককভাবে সবচেয়ে বেশি আসন পাওয়ার দাবি করেছেন দেশটির সাবেক প্রধানমন্ত্রী ও পিএমএল (এন)-এর নেতা নওয়াজ..</p>
                </div>
             </a>
+            <div class="grid grid-cols-3 gap-4  border rounded-md p-2">
+               <a href="#" class="flex flex-col gap-2">
+                  <div class="w-full rounded-md overflow-hidden">
+                     <img src="{{asset('frontend/images/news2.webp')}}" alt="">
+                  </div>
+                  <div class="">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex flex-col gap-2">
+                  <div class="w-full rounded-md overflow-hidden">
+                     <img src="{{asset('frontend/images/news3.webp')}}" alt="">
+                  </div>
+                  <div class="">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex flex-col gap-2">
+                  <div class="w-full rounded-md overflow-hidden">
+                     <img src="{{asset('frontend/images/news4.webp')}}" alt="">
+                  </div>
+                  <div class="">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex flex-col gap-2">
+                  <div class="w-full rounded-md overflow-hidden">
+                     <img src="{{asset('frontend/images/news5.webp')}}" alt="">
+                  </div>
+                  <div class="">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex flex-col gap-2">
+                  <div class="w-full rounded-md overflow-hidden">
+                     <img src="{{asset('frontend/images/news6.webp')}}" alt="">
+                  </div>
+                  <div class="">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex flex-col gap-2">
+                  <div class="w-full rounded-md overflow-hidden">
+                     <img src="{{asset('frontend/images/news7.webp')}}" alt="">
+                  </div>
+                  <div class="">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+            </div>
          </div>
          <div class="w-1/4">
-            <div class="flex flex-col gap-2">
-               <a href="#" class="rounded-md flex flex-col gap-1 p-2 border">
+            <div class="flex flex-col gap-4 rounded-md p-2 border">
+               <a href="#" class=" flex flex-col gap-1 ">
                   <div class="rounded-md overflow-hidden">
                      <img class="w-full" src="{{asset('frontend/images/news1.webp')}}" alt="">
                   </div>
                   <div class="mt-1">
-                     <h3 class="text-2xl font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex gap-2 ">
+                  <div class="w-1/3 overflow-hidden">
+                     <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
+                  </div>
+                  <div class="mt-1 w-2/3">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex gap-2 ">
+                  <div class="w-1/3 overflow-hidden">
+                     <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
+                  </div>
+                  <div class="mt-1 w-2/3">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex gap-2 ">
+                  <div class="w-1/3 overflow-hidden">
+                     <img class="w-full" src="{{asset('frontend/images/news7.webp')}}" alt="">
+                  </div>
+                  <div class="mt-1 w-2/3">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex gap-2 ">
+                  <div class="w-1/3 overflow-hidden">
+                     <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
+                  </div>
+                  <div class="mt-1 w-2/3">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                  </div>
+               </a>
+               <a href="#" class="flex gap-2 ">
+                  <div class="w-1/3 overflow-hidden">
+                     <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
+                  </div>
+                  <div class="mt-1 w-2/3">
+                     <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
                   </div>
                </a>
             </div>
