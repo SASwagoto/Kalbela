@@ -1,5 +1,5 @@
 $(window).scroll(function() {
-  if ($(window).scrollTop() > 150) {
+  if ($(window).scrollTop() > 140) {
         //$('#back-top').fadeIn();
       //$('header.non-sticky').hide();
       $('.sticky_nav').show();
