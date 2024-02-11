@@ -125,12 +125,12 @@
                 <div class="flex h-[700px] w-full flex-col gap-2 rounded-md border p-2">
                     <div class="flex justify-start gap-6 border-b">
                         <a href="#"
-                            class="flex w-1/2 justify-center gap-4 text-lg active:border-b-4 active:border-red-800">
+                            class="flex w-1/2 justify-center gap-2 font-bold active:border-b-4 active:border-red-800">
                             <i class="fa-solid fa-video"></i>
                             ভিডিও স্টোরি
                         </a>
                         <a href="#"
-                            class="flex w-1/2 justify-center gap-4 text-lg active:border-b-4 active:border-red-800">
+                            class="flex w-1/2 justify-center gap-2 font-bold active:border-b-4 active:border-red-800">
                             <i class="fa-solid fa-camera-retro"></i>
                             ফটো স্টোরি
                         </a>
