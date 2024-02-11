@@ -39,7 +39,7 @@
         <a href="#">
             অডিও
         </a>
-        <div class="group">
+        <div class="group px-4">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>
             </a>
@@ -109,9 +109,9 @@
 
 <section class="w-full py-3 bg-white fixed hidden top-0 sticky_nav drop-shadow-md border-b">
     <div class="container mx-auto flex justify-between font-bold">
-        <div class="flex justify-between gap-2">
+        <div class="flex justify-between items-center gap-2">
             <a href="{{route('homepage')}}">
-                <img class="w-6" src="{{asset('frontend/images/sitesym.webp')}}" alt="Site Icon">
+                <img class="w-24" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Site Icon">
             </a>
             <h4>| {{bangla_date(time(), 'en')}}</h4>
         </div>
@@ -155,7 +155,7 @@
             অডিও
         </a>
 
-        <div class="group">
+        <div class="group px-4">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>
             </a>

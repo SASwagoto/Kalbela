@@ -1,7 +1,7 @@
 <header class="w-full mt-3 border">
     <div class="container mx-auto py-2 flex items-center justify-between">
         <div class="logo">
-            <img class="max-w-60" src="{{asset('frontend/images/logo.png')}}" alt="Logo">
+            <img class="max-w-60" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
         </div>
         <div class="menu flex justify-center gap-4">
             <a class="font-bold" href="#">

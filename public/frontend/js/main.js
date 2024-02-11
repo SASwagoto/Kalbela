@@ -9,3 +9,7 @@ $(window).scroll(function() {
       //$('header.non-sticky').show();
   }
 });
+
+
+
+// Slider Js
