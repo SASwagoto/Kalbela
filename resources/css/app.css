@@ -4,5 +4,10 @@
 
 @font-face {
     font-family: "kalpurush";
-    src: url("../../public/frontend/fonts/kalpurush_ANSI.ttf");
+    src: url("../../public/frontend/fonts/kalpurush.ttf");
+  }
+
+@font-face {
+    font-family: "bangla";
+    src: url("../../public/frontend/fonts/SutonnyMJ_Regular.ttf");
   }

@@ -13,7 +13,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                bangla: ['kalpurush']
+                bangla: ['kalpurush'],
+                brand: ['bangla']
             },
         },
     },
