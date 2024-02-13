@@ -1,7 +1,12 @@
 @extends('layouts.admin')
 
 @push('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<link rel="stylesheet" href="{{asset('backend/assets/plugins/DataTables/datatables.min.css')}}" />
+<style>
+  select[name="example_length"]{
+    width: 70px;
+  }
+</style>
 @endpush
 
 @section('content')
@@ -64,21 +69,25 @@
     </div>
 
     <div class="w-3/5 border p-4 rounded-md bg-gray-100">
-        <table id="myTable" class="display">
+        <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
+                    <th>SN</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Parent</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
+                    <td>1</td>
+                    <td>Tiger</td>
+                    <td>Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>320800</td>
                 </tr>
             </tbody>
         </table>
@@ -88,10 +97,23 @@
 @endsection
 
 @push('js')
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script src="{{asset('backend/assets/plugins/DataTables/datatables.min.js')}}"></script>
     <script>
-        $(document).ready( function () {
-            $('#myTable').DataTable();
-        } );
+       new DataTable('#example', {
+            columnDefs: [
+                {
+                    targets: [0],
+                    orderData: [0, 1]
+                },
+                {
+                    targets: [1],
+                    orderData: [1, 0]
+                },
+                {
+                    targets: [4],
+                    orderData: [4, 0]
+                }
+            ]
+        });
     </script>
 @endpush
