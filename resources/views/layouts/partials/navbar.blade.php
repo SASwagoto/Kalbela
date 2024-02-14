@@ -107,7 +107,7 @@
     </div>
 </section>
 
-<section class="w-full py-3 bg-white fixed hidden top-0 sticky_nav drop-shadow-md border-b">
+<section class="w-full py-3 bg-white fixed hidden top-0 z-50 sticky_nav drop-shadow-md border-b">
     <div class="container mx-auto flex justify-between font-bold">
         <div class="flex justify-between items-center gap-2">
             <a href="{{route('homepage')}}">
