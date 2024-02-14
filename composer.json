@@ -10,6 +10,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "realrashid/sweet-alert": "^7.1",
         "ronisaha/easy-bangla-date": "^1.0",
         "s1k3/bangla-date": "^1.07",
         "spatie/laravel-permission": "^6.3"

@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('category')->group(function(){
         Route::get('/create', [CategoryController::class, 'index'])->name('category.create');
+        Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/edit/{slug}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::put('/update/{slug}', [CategoryController::class, 'update'])->name('category.update');
+        Route::delete('/delete/{slug}', [CategoryController::class, 'delete'])->name('category.delete');
     });
 });
 

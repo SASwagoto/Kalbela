@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('eng_name');
+            $table->string('ban_name');
+            $table->string('slug')->unique();
+            $table->unsignedInteger('parent_id')->default(0);
+            $table->string('description')->nullable();
+            $table->boolean('isActive')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

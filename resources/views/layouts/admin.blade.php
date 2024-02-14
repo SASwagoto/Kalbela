@@ -13,6 +13,7 @@
     <!-- App css -->
     <link href="{{asset('backend')}}/assets/css/theme.min.css" rel="stylesheet" type="text/css">
     <link href="{{asset('backend')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{asset('frontend/plugins/fontawesome6/css/all.min.css')}}">
     @stack('css')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Head Js -->
@@ -44,6 +45,8 @@
         </div>
         <!-- End Page content -->
     </div>
+
+    @include('sweetalert::alert')
     <!-- Plugin Js -->
     <script src="{{asset('backend')}}/assets/libs/jquery/jquery.min.js"></script>
     <script src="{{asset('backend')}}/assets/libs/simplebar/simplebar.min.js"></script>

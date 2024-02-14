@@ -21,7 +21,8 @@
 
 <section class="w-full flex justify-between gap-10">
     <div class="w-2/5 border p-4 rounded-md bg-gray-100">
-        <form class="flex flex-col gap-4" action="#">
+        <form class="flex flex-col gap-4" action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="flex justify-start items-start gap-2">
                 <label class="w-1/4 mt-2 text-nowrap texl-lg" for="eng_name">Category Name <span>&#40;English&#41;</span></label>
                 <div class="w-3/4">
@@ -47,10 +48,12 @@
                 <label class="w-1/4 mt-2 text-nowrap texl-lg" for="ban_name">Parent Category</label>
                 <div class="w-3/4">
                     <select class="w-full mb-1 form-input rounded-md bg-gray-100" name="parent_id" id="">
-                        <option value="">None</option>
-                        <option value="1">Abc</option>
-                        <option value="2">Bcd</option>
-                        <option value="3">Cab</option>
+                        <option value="0">None</option>
+                        @forelse ($parents as $parent)
+                        <option value="{{$parent->id}}">{{$parent->eng_name.'-'.$parent->ban_name}}</option>
+                        @empty
+                        <option disabled value="0">No Data Found</option>
+                        @endforelse
                     </select>
                     <span class="text-sm">Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional.</span>
                 </div>
@@ -75,20 +78,40 @@
                     <th>SN</th>
                     <th>Category</th>
                     <th>Description</th>
-                    <th>Parent</th>
+                    <th>Slug</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse ($categories as $key => $category)
                 <tr>
-                    <td>1</td>
-                    <td>Tiger</td>
-                    <td>Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>320800</td>
+                    <td>{{$key}}</td>
+                    <td>
+                        <div class="flex flex-col">
+                            <h4 class="font-bold">{{$category->eng_name}}</h4>
+                            <h4 class="font-bold">{{$category->ban_name}}</h4>
+                        </div>
+                    </td>
+                    <td>{{$category->description}}</td>
+                    <td>{{$category->slug}}</td>
+                    <td>
+                        @if ($category->isActive)
+                        <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Active</span>
+                        @else
+                            <span class="p-1 rounded-full bg-red-700"></span>
+                        @endif
+                    </td>
+                    <td>
+                        <div class="flex justify-end gap-3">
+                            <a href="{{route('category.edit', $category->slug)}}"><i class="fa-solid fa-pen-to-square text-green-600 fa-lg"></i></a>
+                            <a href="#" data-confirm-delete="true"><i class="fa-solid fa-trash text-red-600 fa-lg"></i></a>
+                        </div>
+                    </td>
                 </tr>
+                @empty
+                    
+                @endforelse
             </tbody>
         </table>
     </div>
