@@ -27,7 +27,7 @@
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link">
+                        <a href="{{route('post.all')}}" class="menu-link">
                             <span class="menu-dot"></span>
                             <span class="menu-text">All Posts</span>
                         </a>
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link">
+                        <a href="{{route('tag.create')}}" class="menu-link">
                             <span class="menu-dot"></span>
                             <span class="menu-text">Tags</span>
                         </a>

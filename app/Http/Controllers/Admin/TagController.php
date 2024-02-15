@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use GuzzleHttp\Promise\Create;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\Category;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     public function __construct()
     {
@@ -20,14 +19,8 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = DB::table('categories')->whereNull('deleted_at')->get();
-        $parents = DB::table('categories')->where('parent_id', 0)->whereNull('deleted_at')->get();
-
-        $title = 'Delete Category!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
-
-        return view('admin.category.index', compact('categories', 'parents'));
+        $tags = DB::table('tags')->whereNull('deleted_at')->get();
+        return view('admin.tag.index', compact('tags'));
     }
 
     public function store(Request $request)
@@ -49,16 +42,15 @@ class CategoryController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $category = DB::table('categories')->insert([
+        $tag = DB::table('tags')->insert([
             'eng_name'=> $request->eng_name,
             'ban_name'=> $request->ban_name,
             'slug'=> Str::slug($request->slug, '_'),
-            'parent_id'=> $request->parent_id,
             'description'=> $request->description,
             'created_at'=> now()
         ]);
-        if($category){
-            Alert::success('Success', 'Category Added Successfully');
+        if($tag){
+            Alert::success('Success', 'Tag Added Successfully');
             return redirect()->back();
         }else{
             Alert::error('Error', 'There was an error!');
@@ -68,40 +60,37 @@ class CategoryController extends Controller
 
     public function edit($slug)
     {
-        $category = DB::table('categories')->where('slug', $slug)->first();
-        $parents = DB::table('categories')->where('parent_id', 0)->whereNull('deleted_at')->get();
-        return view('admin.category.edit', compact('category', 'parents'));
+        $tag = DB::table('tags')->where('slug', $slug)->first();
+        return view('admin.tag.edit', compact('tag'));
     }
 
-    public function  update(Request $request, $slug){
-        $update = DB::table('categories')->where('slug', $slug)->update([
+    public function update(Request $request, $slug)
+    {
+        $update = DB::table('tags')->where('slug', $slug)->update([
             'eng_name'=> $request->eng_name,
             'ban_name'=> $request->ban_name,
             'slug'=> Str::slug($request->slug, '_'),
-            'parent_id'=> $request->parent_id,
             'description'=> $request->description,
             'updated_at'=> now()
         ]);
         if($update){
-            Alert::success('Success', 'Category Updated Successfully');
-            return redirect()->route('category.create');
+            Alert::success('Success', 'Tag Updated Successfully');
+            return redirect()->route('tag.create');
         }else{
             Alert::error('Error', 'There was an error!');
-            return redirect()->route('category.create');
+            return redirect()->route('tag.create');
         }
-
     }
 
     public function delete(Request $request){
-        $category = Category::where('slug', $request->slug)->first();
-        $delete = $category->delete();
+        $tag = Tag::where('slug', $request->slug)->first();
+        $delete = $tag->delete();
         if($delete){
-            Alert::success('Deleted', 'Category deleted successfully!');
+            Alert::success('Deleted', 'Tag deleted successfully!');
             return redirect()->back();
         }else{
             Alert::error('Error', 'There was a problem!');
             return redirect()->back();
         }
     }
-    
 }
