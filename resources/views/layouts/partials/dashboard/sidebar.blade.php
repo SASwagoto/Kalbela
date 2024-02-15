@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link">
+                        <a href="{{route('post.create')}}" class="menu-link">
                             <span class="menu-dot"></span>
                             <span class="menu-text">Add New Post</span>
                         </a>

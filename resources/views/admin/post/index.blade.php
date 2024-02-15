@@ -21,7 +21,7 @@
 
 <section class="w-full flex flex-col gap-2">
     <div class="w-full flex justify-end gap-2">
-        <a href="#" class="py-2 px-4 bg-blue-700 rounded-md text-white">Add New Post <i class="fa-solid fa-add text-white ms-2"></i></a>
+        <a href="{{route('post.create')}}" class="py-2 px-4 bg-blue-700 rounded-md text-white">Add New Post <i class="fa-solid fa-add text-white ms-2"></i></a>
         <a href="#" class="py-2 px-4 bg-blue-700 rounded-md text-white">Trash <i class="fa-solid fa-trash text-white ms-2"></i></a>
     </div>
     <div class="w-full border p-4 rounded-md bg-gray-100">

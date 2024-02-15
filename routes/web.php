@@ -52,6 +52,9 @@ Route::middleware('auth')->group(function () {
     //Post Controller
     Route::prefix('posts')->group(function(){
         Route::get('/', [PostController::class, 'index'])->name('post.all');
+        Route::get('/create', [PostController::class, 'create'])->name('post.create');
+        Route::post('/ckedior_upload', [PostController::class, 'upload'])->name('ckeditor.upload');
+        Route::post('/store', [PostController::class, 'store'])->name('post.store');
     });
 });
 
