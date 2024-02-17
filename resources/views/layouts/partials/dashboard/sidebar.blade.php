@@ -1,7 +1,7 @@
 <div class="app-menu">
 
     <!-- Brand Logo -->
-    <a href="index.html" class="logo-box">
+    <a href="{{route('dashboard')}}" class="logo-box">
         <img src="{{asset('backend')}}/assets/images/logo-light.png" class="logo-light h-6" alt="Light logo">
         <img src="{{asset('backend')}}/assets/images/logo-dark.png" class="logo-dark h-6" alt="Dark logo">
     </a>
