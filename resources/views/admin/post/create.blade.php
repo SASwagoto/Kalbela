@@ -15,9 +15,9 @@
             Create New Post
         @endsection
         <a href="{{ route('dashboard') }}" class="text-sm font-medium text-slate-500" aria-current="page">Dashboard</a>
-        <i class="bx bx-chevron-right flex-shrink-0 text-lg text-slate-400"></i>
+        <i class="fa-solid fa-angle-right text-slate-400"></i>
         <a href="{{ route('post.all') }}" class="text-sm font-medium text-slate-500" aria-current="page">Post</a>
-        <i class="bx bx-chevron-right flex-shrink-0 text-lg text-slate-400"></i>
+        <i class="fa-solid fa-angle-right text-slate-400"></i>
         <a href="javascript:void(0)" class="text-sm font-medium text-slate-700" aria-current="page">Create Post</a>
     @endcomponent
 

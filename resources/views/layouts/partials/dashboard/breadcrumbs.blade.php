@@ -3,7 +3,7 @@
 
     <div class="md:flex hidden items-center gap-3 text-sm font-semibold">
         <a href="{{route('dashboard')}}" class="text-sm font-medium text-slate-500">Notun Khobor</a>
-        <i class="bx bx-chevron-right text-lg flex-shrink-0 text-slate-400"></i>
+        <i class="fa-solid fa-angle-right text-slate-400"></i>
         {{ $slot }}
     </div>
 </div>
