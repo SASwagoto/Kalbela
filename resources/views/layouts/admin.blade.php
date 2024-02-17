@@ -12,7 +12,7 @@
 
     <!-- App css -->
     <link href="{{asset('backend')}}/assets/css/theme.min.css" rel="stylesheet" type="text/css">
-    <link href="{{asset('backend')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    {{-- <link href="{{asset('backend')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="{{asset('frontend/plugins/fontawesome6/css/all.min.css')}}">
     @stack('css')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
