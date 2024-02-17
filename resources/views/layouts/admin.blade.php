@@ -18,6 +18,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Head Js -->
     <script src="{{asset('backend')}}/assets/js/head.js"></script>
+
+    <style>
+        .menu .menu-item .menu-link>.menu-arrow::before{
+            content: '';
+        }
+    </style>
 </head>
 <body>
     
