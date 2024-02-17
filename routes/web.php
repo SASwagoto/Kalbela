@@ -55,6 +55,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', [PostController::class, 'create'])->name('post.create');
         Route::post('/ckedior_upload', [PostController::class, 'upload'])->name('ckeditor.upload');
         Route::post('/store', [PostController::class, 'store'])->name('post.store');
+
+        Route::get('/get_districts/{id}', [PostController::class, 'get_districts'])->name('getDistricts');
+        Route::get('/get_upazila/{id}', [PostController::class, 'get_upazila'])->name('getUpazila');
     });
 });
 
