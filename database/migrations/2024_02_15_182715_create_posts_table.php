@@ -13,6 +13,37 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('headline');
+            $table->string('slug')->unique();
+            $table->text('article');
+            $table->string('feature_photo')->nullable();
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedInteger('division_id')->nullable();
+            $table->unsignedInteger('district_id')->nullable();
+            $table->unsignedInteger('upazila_id')->nullable();
+            $table->boolean('isPublished')->default(true);
+            $table->timestamp('published_at');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::create('post_category', function(Blueprint $table){
+            $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('category_id');
+        });
+
+        Schema::create('post_tag', function(Blueprint $table){
+            $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('tag_id');
+        });
+
+        Schema::create('post_meta', function(Blueprint $table){
+            $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->string('key', 50);
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
@@ -23,5 +54,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('posts');
+        Schema::dropIfExists('post_category');
+        Schema::dropIfExists('post_tag');
+        Schema::dropIfExists('post_meta');
     }
 };

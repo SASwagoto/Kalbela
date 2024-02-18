@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PostController extends Controller
 {
@@ -18,7 +21,11 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('admin.post.index');
+        $posts = DB::table('posts')
+        ->leftJoin('users', 'posts.author_id', 'users.id')
+        ->select('posts.*', 'users.name')
+        ->get();
+        return view('admin.post.index', compact('posts'));
     }
 
     public function create()
@@ -31,24 +38,83 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        
-        return $request;
+        $slug = Str::random(10);
+        $published_at = null;
+        $isPublished = false;
+
+        if ($request->has('draft')) {
+            // Save draft logic
+            $isPublished = false;
+        } elseif ($request->has('publish')) {
+            // Publish logic
+            $isPublished = true;
+            $published_at = now();
+        }
+
+        $filename = null;
+
+        if ($request->hasFile('feature_photo')) {
+            $file = $request->file('feature_photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('media'), $filename);
+        }
+
+        $post = DB::table('posts')->insertGetId([
+            'headline' => $request->headline,
+            'slug' => $slug,
+            'article' => $request->article,
+            'author_id' => Auth::user()->id,
+            'division_id' => $request->division_id,
+            'district_id' => $request->district_id,
+            'upazila_id' => $request->upazila_id,
+            'isPublished' => $isPublished,
+            'published_at' => $published_at,
+            'feature_photo' => $filename // Inserting filename into the database
+        ]);
+
+        if($request->category_id != null){
+            foreach($request->category_id as $cat_id)
+            {
+                DB::table('post_category')->insert([
+                    'post_id' => $post,
+                    'category_id' => $cat_id
+                ]);
+            }
+        }
+
+        if($request->tag_id != null){
+            foreach($request->tag_id as $tag_id)
+            {
+                DB::table('post_tag')->insert([
+                    'post_id' => $post,
+                    'tag_id' => $tag_id
+                ]);
+            }
+        }
+
+        if($post){
+            Alert::success('Success', 'Post Added Successfully');
+            return redirect()->route('post.all');
+        }else{
+            Alert::error('Error', 'There was an error!');
+            return redirect()->back();
+        }
     }
+
 
     public function upload(Request $request)
     {
-        if($request->hasFile('upload')){
+        if ($request->hasFile('upload')) {
             $originName = $request->file('upload')->getClientOriginalName();
             $filename = pathinfo($originName, PATHINFO_FILENAME);
             $extension = $request->file('upload')->getClientOriginalExtension();
-            $newName = $filename.'-'.time().'.'.$extension;
+            $newName = $filename . '-' . time() . '.' . $extension;
 
             $request->file('upload')->move(public_path('media'), $newName);
 
-            $url = asset('media/'.$newName);
-            return response()->json(['fileName'=> $newName, 'uploaded' => 1,  'url'=> $url]);
+            $url = asset('media/' . $newName);
+            return response()->json(['fileName' => $newName, 'uploaded' => 1,  'url' => $url]);
         }
-
     }
 
     public function get_districts($id)

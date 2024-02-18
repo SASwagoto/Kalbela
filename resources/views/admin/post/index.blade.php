@@ -39,16 +39,23 @@
                 </tr>
             </thead>
             <tbody>
-               <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                @foreach ($posts as $key => $post)
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>
+                    <div class="w-20 overflow-hidden flex items-center">
+                        <img class="w-full" src="{{asset('media/'. $post->feature_photo)}}" alt="">    
+                    </div>
+                    </td>
+                    <td>{{$post->headline}}</td>
+                    <td>{{$post->name}}</td>
                     <td>1</td>
                     <td>1</td>
                     <td>1</td>
                     <td>1</td>
                </tr>
+                @endforeach
+               
             </tbody>
         </table>
     </div>

@@ -8,7 +8,7 @@
     <meta content="MyraStudio" name="author">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('backend')}}/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{asset('frontend/images/notunkhobor_icon.ico')}}">
 
     <!-- App css -->
     <link href="{{asset('backend')}}/assets/css/theme.min.css" rel="stylesheet" type="text/css">
