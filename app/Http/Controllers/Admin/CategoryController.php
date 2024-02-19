@@ -23,10 +23,6 @@ class CategoryController extends Controller
         $categories = DB::table('categories')->whereNull('deleted_at')->get();
         $parents = DB::table('categories')->where('parent_id', 0)->whereNull('deleted_at')->get();
 
-        $title = 'Delete Category!';
-        $text = "Are you sure you want to delete?";
-        confirmDelete($title, $text);
-
         return view('admin.category.index', compact('categories', 'parents'));
     }
 

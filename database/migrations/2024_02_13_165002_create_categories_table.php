@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->unsignedInteger('parent_id')->default(0);
             $table->string('description')->nullable();
+            $table->boolean('isPrimaryMenu')->default(false);
             $table->boolean('isActive')->default(true);
             $table->timestamps();
             $table->softDeletes();

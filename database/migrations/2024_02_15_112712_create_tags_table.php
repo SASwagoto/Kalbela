@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('ban_name');
             $table->string('slug')->unique();
             $table->string('description')->nullable();
+            $table->boolean('isPrimaryMenu')->default(false);
             $table->boolean('isActive')->default(true);
             $table->timestamps();
             $table->softDeletes();
