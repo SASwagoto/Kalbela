@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\HomeController;
@@ -66,8 +67,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
         Route::get('/get_upazila/{id}', [PostController::class, 'get_upazila'])->name('getUpazila');
     });
 
-    Route::prefix('menu')->group(function(){
-        Route::get('/', [PostController::class,'index'])->name('');
+    Route::prefix('primary-menu')->group(function(){
+        Route::get('/', [MenuController::class,'index'])->name('menu.index');
     });
 });
 

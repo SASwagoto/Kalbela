@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -14,6 +15,8 @@ class MenuController extends Controller
 
     public function index()
     {
-        return view();
+        $all = Category::where('isPrimaryMenu', 0)->get();
+        $menus = Category::where('isPrimaryMenu', 1)->get();
+        return view('admin.menu.index', compact('all','menus'));
     }
 }

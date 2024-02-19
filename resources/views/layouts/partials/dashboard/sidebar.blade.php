@@ -64,7 +64,7 @@
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
-                        <a href="#" class="menu-link">
+                        <a href="{{route('menu.index')}}" class="menu-link">
                             <i class="fa-solid fa-circle fa-2xs"></i>
                             <span class="menu-text">Primary Menu</span>
                         </a>
