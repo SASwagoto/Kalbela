@@ -27,15 +27,15 @@ Route::get('/news/{name}', [HomeController::class, 'newsBy'])->name('newsBy');
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->prefix('dashboard')->group(function () {
+    route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //Category Controller
     Route::prefix('category')->group(function(){
-        Route::get('/create', [CategoryController::class, 'index'])->name('category.create');
+        Route::get('/', [CategoryController::class, 'index'])->name('category.create');
         Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
         Route::get('/edit/{slug}', [CategoryController::class, 'edit'])->name('category.edit');
         Route::put('/update/{slug}', [CategoryController::class, 'update'])->name('category.update');
@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
     //Tag Controller
     Route::prefix('tag')->group(function(){
-        Route::get('/create', [TagController::class, 'index'])->name('tag.create');
+        Route::get('/', [TagController::class, 'index'])->name('tag.create');
         Route::post('/store', [TagController::class, 'store'])->name('tag.store');
         Route::get('/edit/{slug}', [TagController::class, 'edit'])->name('tag.edit');
         Route::put('/update/{slug}', [TagController::class, 'update'])->name('tag.update');
@@ -64,6 +64,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/get_districts/{id}', [PostController::class, 'get_districts'])->name('getDistricts');
         Route::get('/get_upazila/{id}', [PostController::class, 'get_upazila'])->name('getUpazila');
+    });
+
+    Route::prefix('menu')->group(function(){
+        Route::get('/', [PostController::class,'index'])->name('');
     });
 });
 
