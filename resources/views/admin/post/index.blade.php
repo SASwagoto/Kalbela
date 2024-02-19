@@ -32,27 +32,46 @@
                     <th>Image</th>
                     <th>Title</th>
                     <th>Author</th>
-                    <th>Categories</th>
-                    <th>Tags</th>
-                    <th>Comments</th>
-                    <th>Date</th>
+                    <th>Publish Date</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($posts as $key => $post)
-                <tr>
+                <tr class="group">
                     <td>{{$key+1}}</td>
                     <td>
                     <div class="w-20 overflow-hidden flex items-center">
                         <img class="w-full" src="{{asset('media/'. $post->feature_photo)}}" alt="">    
                     </div>
                     </td>
-                    <td>{{$post->headline}}</td>
+                    <td>
+                        <div class="flex flex-col">
+                            <h1 class="text-md font-bold">{{$post->headline}}</h1>
+                            <div class="flex gap-4 opacity-0 group-hover:opacity-100 duration-300">
+                                <a href="#" class="text-green-600">view</a>
+                                <span>|</span>
+                                <a href="{{route('post.edit', $post->slug)}}" class="text-green-600">Edit</a>
+                                <span>|</span>
+                                <form action="{{route('post.delete', $post->slug)}}" id="deleteForm{{$key}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" onclick="deleteForm({{$key}});" class="text-red-600">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
                     <td>{{$post->name}}</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
+                    <td>
+                        <div class="flex flex-col">
+                            @if ($post->isPublished == true)
+                            <span class="text-green-600">Published</span>
+                            <span>{{$post->published_at}}</span>
+                            @else
+                            <span class="text-red-600">Unpublished</span>
+                            @endif
+                        </div>
+                    
+                    </td>
                </tr>
                 @endforeach
                
@@ -82,5 +101,23 @@
                 }
             ]
         });
+    </script>
+    <script>
+        function deleteForm(key){
+
+            Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#deleteForm'+key).submit();
+                    }
+                });
+        }
     </script>
 @endpush

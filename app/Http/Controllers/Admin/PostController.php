@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -22,6 +24,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = DB::table('posts')
+        ->whereNull('deleted_at')
         ->leftJoin('users', 'posts.author_id', 'users.id')
         ->select('posts.*', 'users.name')
         ->get();
@@ -69,7 +72,8 @@ class PostController extends Controller
             'upazila_id' => $request->upazila_id,
             'isPublished' => $isPublished,
             'published_at' => $published_at,
-            'feature_photo' => $filename // Inserting filename into the database
+            'feature_photo' => $filename, // Inserting filename into the database
+            'created_at' => now()
         ]);
 
         if($request->category_id != null){
@@ -101,6 +105,104 @@ class PostController extends Controller
         }
     }
 
+    public function edit($slug)
+    {
+        $post = DB::table('posts')->where('slug', $slug)->first();
+        $postId = $post->id;
+        $categories = DB::table('categories')
+        ->leftJoin('post_category', function ($join) use ($postId) {
+            $join->on('categories.id', '=', 'post_category.category_id')
+                ->where('post_category.post_id', '=', $postId);
+        })
+        ->select('categories.*', DB::raw('CASE WHEN post_category.category_id IS NOT NULL THEN 1 ELSE 0 END AS selected'))
+        ->get();
+        $tags = DB::table('tags')
+        ->leftJoin('post_tag', function ($join) use ($postId) {
+            $join->on('tags.id', '=', 'post_tag.tag_id')
+                ->where('post_tag.post_id', '=', $postId);
+        })
+        ->select('tags.*', DB::raw('CASE WHEN post_tag.tag_id IS NOT NULL THEN 1 ELSE 0 END AS selected'))
+        ->get();
+
+        $divs = DB::table('divisions')->get();
+        $dists = DB::table('districts')->where('division_id', $post->division_id)->get();
+        $upazilas = DB::table('upazilas')->where('district_id', $post->district_id)->get();
+        return view('admin.post.edit', compact('categories', 'tags', 'divs', 'post', 'dists', 'upazilas'));
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $post = DB::table('posts')->where('slug', $slug)->first();
+
+        if ($request->hasFile('feature_photo')) {
+            if ($post->feature_photo) {
+                Storage::delete('media/' . $post->feature_photo);
+            }
+            $file = $request->file('feature_photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('media'), $filename);
+        }else{
+            $filename = $post->feature_photo;
+        }
+
+        $updatePost = DB::table('posts')->where('slug', $slug)->update([
+            'headline' => $request->headline,
+            'article' => $request->article,
+            'division_id' => $request->division_id,
+            'district_id' => $request->district_id,
+            'upazila_id' => $request->upazila_id,
+            'feature_photo' => $filename, // Inserting filename into the database
+            'updated_at' => now()
+        ]);
+
+        if ($request->has('category_id')) {
+            DB::table('post_category')
+                ->where('post_id', $post->id)
+                ->delete(); // Remove existing associations
+    
+            foreach ($request->category_id as $categoryId) {
+                DB::table('post_category')->insert([
+                    'post_id' => $post->id,
+                    'category_id' => $categoryId,
+                ]);
+            }
+        }
+
+        if ($request->has('tag_id')) {
+            DB::table('post_tag')
+                ->where('post_id', $post->id)
+                ->delete(); // Remove existing associations
+    
+            foreach ($request->tag_id as $tagId) {
+                DB::table('post_tag')->insert([
+                    'post_id' => $post->id,
+                    'tag_id' => $tagId,
+                ]);
+            }
+        }
+
+        if($updatePost){
+            Alert::success('Success', 'Post Updated Successfully');
+            return redirect()->route('post.all');
+        }else{
+            Alert::error('Error', 'There was an error!');
+            return redirect()->back();
+        }
+
+    }
+
+    public function delete($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        $delete = $post->delete();
+        if($delete){
+            Alert::success('Success', 'Post Deleted Successfully');
+            return redirect()->route('post.all');
+        }else{
+            Alert::error('Error', 'There was an error!');
+            return redirect()->back();
+        }
+    }
 
     public function upload(Request $request)
     {
