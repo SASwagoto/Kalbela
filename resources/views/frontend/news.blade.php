@@ -1,7 +1,11 @@
 @extends('layouts.web')
 
 @push('css')
-    
+    <style>
+        p{
+            font-size: 22px;
+        }
+    </style>
 @endpush
 
 @section('content')

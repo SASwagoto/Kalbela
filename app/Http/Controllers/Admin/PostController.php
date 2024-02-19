@@ -105,6 +105,26 @@ class PostController extends Controller
         }
     }
 
+    public function show($slug)
+    {
+        $post = DB::table('posts as p')
+            ->where('p.slug', $slug) // Use alias to specify the table for slug column
+            ->leftJoin('post_category', 'p.id', '=', 'post_category.post_id')
+            ->leftJoin('post_tag', 'p.id', '=', 'post_tag.post_id')
+            ->leftJoin('categories', 'post_category.category_id', '=', 'categories.id')
+            ->leftJoin('tags', 'post_tag.tag_id', '=', 'tags.id')
+            ->select(
+                'p.*',
+                DB::raw('GROUP_CONCAT(DISTINCT categories.ban_name) AS category_names'),
+                DB::raw('GROUP_CONCAT(DISTINCT categories.slug) AS category_slug'),
+                DB::raw('GROUP_CONCAT(DISTINCT tags.ban_name) AS tag_names'),
+                DB::raw('GROUP_CONCAT(DISTINCT tags.slug) AS tag_slug')
+            )
+            ->groupBy('p.id')
+            ->first();
+
+        return view('admin.post.single', compact('post'));
+    }
     public function edit($slug)
     {
         $post = DB::table('posts')->where('slug', $slug)->first();

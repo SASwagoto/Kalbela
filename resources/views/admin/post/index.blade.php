@@ -41,14 +41,18 @@
                     <td>{{$key+1}}</td>
                     <td>
                     <div class="w-20 overflow-hidden flex items-center">
-                        <img class="w-full" src="{{asset('media/'. $post->feature_photo)}}" alt="">    
+                        @if ($post->feature_photo)
+                        <img class="w-full" src="{{asset('media/'. $post->feature_photo)}}" alt="">     
+                        @else
+                        <img class="w-full" src="{{asset('backend/assets/images/preview.jpg')}}" alt="">    
+                        @endif
                     </div>
                     </td>
                     <td>
                         <div class="flex flex-col">
                             <h1 class="text-md font-bold">{{$post->headline}}</h1>
                             <div class="flex gap-4 opacity-0 group-hover:opacity-100 duration-300">
-                                <a href="#" class="text-green-600">view</a>
+                                <a href="{{route('post.show', $post->slug)}}" class="text-green-600">view</a>
                                 <span>|</span>
                                 <a href="{{route('post.edit', $post->slug)}}" class="text-green-600">Edit</a>
                                 <span>|</span>
@@ -83,6 +87,7 @@
 @endsection
 
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('backend/assets/plugins/DataTables/datatables.min.js')}}"></script>
     <script>
        new DataTable('#example', {
@@ -103,17 +108,16 @@
         });
     </script>
     <script>
-        function deleteForm(key){
-
-            Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#d33',
-                    cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
+        function deleteForm(key)
+        {
+            new Swal({
+                title: 'Are You Sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
                     if (result.isConfirmed) {
                         $('#deleteForm'+key).submit();
                     }

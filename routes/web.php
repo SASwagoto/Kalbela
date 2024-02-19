@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', [PostController::class, 'create'])->name('post.create');
         Route::post('/ckedior_upload', [PostController::class, 'upload'])->name('ckeditor.upload');
         Route::post('/store', [PostController::class, 'store'])->name('post.store');
+        Route::get('/view/{slug}', [PostController::class, 'show'])->name('post.show');
         Route::get('/edit/{slug}', [PostController::class, 'edit'])->name('post.edit');
         Route::put('/update/{slug}', [PostController::class, 'update'])->name('post.update');
         Route::delete('/delete/{slug}', [PostController::class, 'delete'])->name('post.delete');
