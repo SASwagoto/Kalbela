@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/all-news', [HomeController::class, 'allNews'])->name('allNews');
-Route::get('/{name}', [HomeController::class, 'newsBy'])->name('newsBy');
+Route::get('/news/{name}', [HomeController::class, 'newsBy'])->name('newsBy');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

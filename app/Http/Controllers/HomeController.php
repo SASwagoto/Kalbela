@@ -17,4 +17,9 @@ class HomeController extends Controller
         $news = DB::table('posts');
         return view('frontend.allnews', compact('news'));
     }
+
+    public function newsBy($name)
+    {
+        return "ok";
+    }
 }
