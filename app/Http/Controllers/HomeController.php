@@ -12,9 +12,9 @@ class HomeController extends Controller
         return view('frontend.index');
     }
 
-    public function details()
+    public function allNews()
     {
-        $news = DB::table('posts')->where('id', 1)->first();
-        return view('frontend.news', compact('news'));
+        $news = DB::table('posts');
+        return view('frontend.allnews', compact('news'));
     }
 }

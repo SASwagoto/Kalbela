@@ -1,9 +1,9 @@
 <section class="w-full py-3 top-0 bg-white non_sticky_nav drop-shadow-md border-b">
     <div class="container mx-auto flex justify-between font-bold px-20">
-        <a href="#">
+        <a href="{{route('homepage')}}">
             <i class="fa-solid fa-home"></i>
         </a>
-        <a href="#">
+        <a href="{{route('allNews')}}">
             সর্বশেষ
         </a>
         <a href="#">
@@ -49,36 +49,9 @@
                     <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
                 </div>
                 <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
+                    @foreach ($menu as $item)
+                    <a href="{{route('newsBy', $item->slug)}}" class="text-start">{{$item->ban_name}}</a>
+                    @endforeach
                 </div>
                 <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
                     <a href="" class="flex gap-4 text-lg">
@@ -164,36 +137,9 @@
                     <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
                 </div>
                 <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
-                    <div class="text-start">বাংলাদেশ</div>
+                    @foreach ($menu as $item)
+                    <a href="{{route('newsBy', $item->slug)}}" class="text-start">{{$item->ban_name}}</a>
+                    @endforeach
                 </div>
                 <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
                     <a href="" class="flex gap-4 text-lg">
