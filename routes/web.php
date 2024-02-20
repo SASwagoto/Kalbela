@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SiteSettingsController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -28,7 +29,7 @@ Route::get('/news/{name}', [HomeController::class, 'newsBy'])->name('newsBy');
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->middleware('auth')->group(function () {
     route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -70,6 +71,10 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::prefix('primary-menu')->group(function(){
         Route::get('/', [MenuController::class,'index'])->name('menu.index');
         Route::put('/update/{slug}', [MenuController::class,'update'])->name('menu.update');
+    });
+
+    Route::prefix('settings')->group(function(){
+        Route::get('/', [SiteSettingsController::class, 'index'])->name('settings.index');
     });
 });
 

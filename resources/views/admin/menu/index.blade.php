@@ -14,7 +14,7 @@
 <a href="javascript:void(0)" class="text-sm font-medium text-slate-700" aria-current="page">Primary Menu</a>
 @endcomponent
 <section class="w-full">
-    <div class="flex justify-start items-center gap-5">
+    <div class="flex justify-start items-start gap-5">
         <div class="w-1/4 flex flex-col gap-2 border p-2 rounded-md">
             <div class="border-b text-center">Select to Add Menu</div>
             @forelse ($all as $item)
@@ -26,6 +26,7 @@
             @empty
                 <span>No Data Available</span>
             @endforelse
+            {!! $all->links() !!}
         </div>
         <div class="w-1/4 flex flex-col gap-2 border p-2 rounded-md">
             <div class="border-b text-center">Primary Menu List</div>

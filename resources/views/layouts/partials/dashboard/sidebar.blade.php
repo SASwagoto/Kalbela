@@ -70,7 +70,31 @@
                         </a>
                     </li>
                 </ul>
-            </li> 
+            </li>
+
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link waves-effect">
+                    <span class="menu-icon"><i class="fa-solid fa-gears"></i></span>
+                    <span class="menu-text"> Settings </span>
+                    <span class="menu-arrow"><i class="fa-solid fa-caret-right"></i></span>
+                    
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('settings.index')}}" class="menu-link">
+                            <i class="fa-solid fa-circle fa-2xs"></i>
+                            <span class="menu-text">Site Settings</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="fa-solid fa-circle fa-2xs"></i>
+                            <span class="menu-text">User Role</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
             <li class="menu-title">Custom</li>
 

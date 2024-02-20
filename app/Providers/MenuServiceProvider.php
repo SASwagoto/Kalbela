@@ -23,7 +23,8 @@ class MenuServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $menu = Category::whereNull('deleted_at')->get();
-            $view->with('menu', $menu);
+            $primaryMenu = Category::whereNull('deleted_at')->where('isPrimaryMenu', 1)->get();
+            $view->with('menu', $menu)->with('primaryMenu', $primaryMenu);
         });
     }
 }

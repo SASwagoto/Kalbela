@@ -1,44 +1,17 @@
-<section class="w-full py-3 top-0 bg-white non_sticky_nav drop-shadow-md border-b">
+<section class="w-full py-4 top-0 bg-white non_sticky_nav drop-shadow-md border-b">
     <div class="container mx-auto flex justify-between font-bold px-20">
         <a href="{{route('homepage')}}">
             <i class="fa-solid fa-home"></i>
         </a>
-        <a href="{{route('allNews')}}">
+        <a class="hover:text-blue-700 border-b-2 border-white hover:border-blue-700 focus:text-blue-700 focus:border-blue-700" href="{{route('allNews')}}">
             সর্বশেষ
         </a>
-        <a href="#">
-            জাতীয়
+        @foreach ($primaryMenu as $item)
+        <a class="hover:text-blue-700 border-b-2 border-white hover:border-blue-700 focus:text-blue-700 focus:border-blue-700" href="{{route('newsBy', $item->slug)}}">
+            {{$item->ban_name}}
         </a>
-        <a href="#">
-            রাজনীতি
-        </a>
-        <a href="#">
-            সারাদেশ
-        </a>
-        <a href="#">
-            বিশ্ব
-        </a>
-        <a href="#">
-            বিনোদন
-        </a>
-        <a href="#">
-            খেলা
-        </a>
-        <a href="#">
-            বাণিজ্য
-        </a>
-        <a href="#">
-            চাকরি
-        </a>
-        <a href="#">
-            মতামত
-        </a>
-        <a href="#">
-            ভিডিও
-        </a>
-        <a href="#">
-            অডিও
-        </a>
+        @endforeach
+        
         <div class="group px-4">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>
@@ -50,7 +23,7 @@
                 </div>
                 <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
                     @foreach ($menu as $item)
-                    <a href="{{route('newsBy', $item->slug)}}" class="text-start">{{$item->ban_name}}</a>
+                    <a href="{{route('newsBy', $item->slug)}}" class="text-start hover:text-blue-700">{{$item->ban_name}}</a>
                     @endforeach
                 </div>
                 <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
@@ -88,46 +61,17 @@
             </a>
             <h4>| {{bangla_date(time(), 'en')}}</h4>
         </div>
-        <a href="#">
+        <a href="{{route('homepage')}}">
             <i class="fa-solid fa-home"></i>
         </a>
-        <a href="#">
+        <a href="{{route('allNews')}}">
             সর্বশেষ
         </a>
-        <a href="#">
-            জাতীয়
+        @foreach ($primaryMenu as $item)
+        <a href="{{route('newsBy', $item->slug)}}">
+            {{$item->ban_name}}
         </a>
-        <a href="#">
-            রাজনীতি
-        </a>
-        <a href="#">
-            সারাদেশ
-        </a>
-        <a href="#">
-            বিশ্ব
-        </a>
-        <a href="#">
-            বিনোদন
-        </a>
-        <a href="#">
-            খেলা
-        </a>
-        <a href="#">
-            বাণিজ্য
-        </a>
-        <a href="#">
-            চাকরি
-        </a>
-        <a href="#">
-            মতামত
-        </a>
-        <a href="#">
-            ভিডিও
-        </a>
-        <a href="#">
-            অডিও
-        </a>
-
+        @endforeach
         <div class="group px-4">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>

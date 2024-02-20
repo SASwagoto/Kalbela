@@ -17,7 +17,7 @@ class MenuController extends Controller
 
     public function index()
     {
-        $all = Category::where('isPrimaryMenu', 0)->get();
+        $all = Category::where('isPrimaryMenu', 0)->paginate(11);
         $menus = Category::where('isPrimaryMenu', 1)->get();
         return view('admin.menu.index', compact('all','menus'));
     }
