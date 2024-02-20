@@ -2,7 +2,11 @@
     <div class="container mx-auto">
         <div class="flex justify-between items-center">
             <div class="footer_logo w-40">
-                <img class="w-full" src="{{asset('frontend/images/notunkhobor.png')}}" alt="">
+                @if ($siteInfo->site_icon)
+                <img class="w-full" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
+                @else
+                <img class="w-full" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
+                @endif
             </div>
             <div class="flex justify-end items-center gap-4 font-bold">
                 <a href="">

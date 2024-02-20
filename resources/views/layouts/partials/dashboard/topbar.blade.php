@@ -25,7 +25,7 @@
     </div>
 
     <!-- Language Dropdown Button -->
-    <div class="relative">
+    {{-- <div class="relative">
         <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button" class="nav-link p-2 waves-effect fc-dropdown">
             <span class="flex items-center justify-center h-6 w-6">
                 <img src="{{asset('backend')}}/assets/images/flags/us.jpg" alt="flags img" class="h-4 w-6">
@@ -49,14 +49,14 @@
                 <span class="align-middle">Russian</span>
             </a>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Fullscreen Toggle Button -->
     <div class="md:flex hidden">
         <button data-toggle="fullscreen" type="button" class="nav-link p-2 waves-effect">
             <span class="sr-only">Fullscreen Mode</span>
             <span class="flex items-center justify-center h-6 w-6">
-                <i class="ph ph-arrows-out text-2xl"></i>
+                <i class="fa-solid fa-maximize fa-xl"></i>
             </span>
         </button>
     </div>
@@ -64,7 +64,7 @@
     <!-- Profile Dropdown Button -->
     <div class="relative">
         <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button" class="nav-link flex items-center gap-2.5 waves-effect p-2">
-            <img src="{{asset('backend')}}/assets/images/users/avatar-6.jpg" alt="user-image" class="rounded-full h-8 w-8">
+            <img src="{{asset('backend')}}/assets/images/avater.jpg" alt="user-image" class="rounded-full h-8 w-8">
             <span class="md:flex items-center hidden">
                 <span class="font-medium text-base">{{ Auth::user()->name }}</span>
                 <i class='ph ph-chevron-down'></i>
@@ -74,10 +74,6 @@
             <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100" href="{{route('profile.edit')}}">
                 Profile
             </a>
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100" href="javascript:void(0)">
-                Settings
-            </a>
-            
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <a href="javascript:void(0)" onclick="event.preventDefault();

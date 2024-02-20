@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>কালবেলা । বিডি নিউজ । বাংলা নিউজ</title>
+    @if ($siteInfo->site_icon)
+    <link rel="shortcut icon" href="{{asset('uploads/'.$siteInfo->site_icon)}}" type="image/x-icon">
+    @else
     <link rel="shortcut icon" href="{{asset('frontend/images/notunkhobor_icon.ico')}}" type="image/x-icon">
+    @endif
+    
     <link rel="stylesheet" href="{{asset('frontend/plugins/fontawesome6/css/all.min.css')}}">
     @stack('css')
     

@@ -14,12 +14,24 @@ class HomeController extends Controller
 
     public function allNews()
     {
-        $news = DB::table('posts');
-        return view('frontend.allnews', compact('news'));
+        $name = "সর্বশেষ সব খবর";
+        $newses = DB::table('posts')->where('isPublished', 1)
+        ->orderBy('id', 'DESC')
+        ->select('posts.headline', 'posts.published_at', 'posts.feature_photo')
+        ->paginate(10);
+        return view('frontend.allnews', compact('newses', 'name'));
     }
 
     public function newsBy($name)
     {
-        return "ok";
+        $category = DB::table('categories')->where('slug', $name)->first();
+        $name = $category->ban_name;
+
+        $newses = DB::table('post_category as pc')
+        ->where('pc.category_id', $category->id)
+        ->leftJoin('posts', 'pc.post_id', 'posts.id')
+        ->select('posts.headline', 'posts.published_at', 'posts.feature_photo')
+        ->get();
+        return view('frontend.allnews', compact('newses', 'name'));
     }
 }

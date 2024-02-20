@@ -1,7 +1,11 @@
 <header class="w-full mt-3 border">
     <div class="container mx-auto py-2 flex items-center justify-between">
         <div class="logo">
+            @if ($siteInfo->site_icon)
+            <img class="max-w-60" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
+            @else
             <img class="max-w-60" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
+            @endif
         </div>
         <div class="menu flex justify-center gap-4">
             <a class="font-bold" href="#">

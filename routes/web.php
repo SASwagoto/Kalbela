@@ -75,6 +75,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::prefix('settings')->group(function(){
         Route::get('/', [SiteSettingsController::class, 'index'])->name('settings.index');
+        Route::put('/update', [SiteSettingsController::class, 'update'])->name('settings.update');
     });
 });
 
