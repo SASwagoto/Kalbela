@@ -54,23 +54,23 @@
                     @endforeach
                 </div>
                 <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-video"></i>
                         ভিডিও স্টোরি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-camera-retro"></i>
                         ফটো স্টোরি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-images"></i>
                         ফটো গ্যালারি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-film"></i>
                         ভিডিও গ্যালারি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-brands fa-soundcloud"></i>
                         অডিও
                     </a>
@@ -142,23 +142,23 @@
                     @endforeach
                 </div>
                 <div  class="w-full flex justify-center items-center gap-10 py-3 border-t font-semibold">
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-video"></i>
                         ভিডিও স্টোরি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-camera-retro"></i>
                         ফটো স্টোরি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-images"></i>
                         ফটো গ্যালারি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-solid fa-film"></i>
                         ভিডিও গ্যালারি
                     </a>
-                    <a href="" class="flex gap-4 text-lg">
+                    <a href="#" class="flex gap-4 text-lg">
                         <i class="fa-brands fa-soundcloud"></i>
                         অডিও
                     </a>

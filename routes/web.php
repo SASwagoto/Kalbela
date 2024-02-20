@@ -69,6 +69,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::prefix('primary-menu')->group(function(){
         Route::get('/', [MenuController::class,'index'])->name('menu.index');
+        Route::put('/update/{slug}', [MenuController::class,'update'])->name('menu.update');
     });
 });
 
