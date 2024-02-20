@@ -1,12 +1,12 @@
 <header class="w-full mt-3 border">
     <div class="container mx-auto py-2 flex items-center justify-between">
-        <div class="logo">
+        <a href="{{route('homepage')}}" class="logo">
             @if ($siteInfo->site_icon)
             <img class="max-w-60" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
             @else
             <img class="max-w-60" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
             @endif
-        </div>
+        </a>
         <div class="menu flex justify-center gap-4">
             <a class="font-bold" href="#">
                 <i class="fa-solid fa-table-list text-lg me-2"></i>
