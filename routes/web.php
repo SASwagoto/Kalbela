@@ -22,8 +22,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
-Route::get('/all-news', [HomeController::class, 'allNews'])->name('allNews');
-Route::get('/news/{name}', [HomeController::class, 'newsBy'])->name('newsBy');
+Route::get('/news/leatest', [HomeController::class, 'allNews'])->name('allNews');
+Route::get('/news/{slug}', [HomeController::class, 'newsBy'])->name('newsBy');
+Route::get('/news/{category}/{slug}', [HomeController::class, 'singleNews'])->name('singleNews');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

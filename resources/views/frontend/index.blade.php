@@ -122,22 +122,9 @@
                 </div>
             </div>
             <div class="w-1/4">
-                <div class="flex h-[700px] w-full flex-col gap-2 rounded-md border p-2">
-                    <div class="flex justify-start gap-6 border-b">
-                        <a href="#"
-                            class="flex w-1/2 justify-center gap-2 font-bold active:border-b-4 active:border-red-800">
-                            <i class="fa-solid fa-video"></i>
-                            ভিডিও স্টোরি
-                        </a>
-                        <a href="#"
-                            class="flex w-1/2 justify-center gap-2 font-bold active:border-b-4 active:border-red-800">
-                            <i class="fa-solid fa-camera-retro"></i>
-                            ফটো স্টোরি
-                        </a>
-                    </div>
-                    <div class="h-full w-full overflow-hidden border">
-                        <div></div>
-                    </div>
+                <div class="flex w-full flex-col gap-6">
+                    <div class="w-full h-80 border rounded-md"></div>
+                    <div class="w-full h-80 border rounded-md"></div>
                 </div>
             </div>
         </div>
@@ -535,57 +522,7 @@
                 </div>
             </div>
             <div class="w-1/3 rounded-md border p-2">
-                <div class="flex items-center gap-2 py-2 border-b-2 border-red-700">
-                    <i class="fa-solid fa-earth-oceania fa-xl"></i>
-                    <h3 class="text-xl font-bold">সর্বশেষ</h3>
-                </div>
-                <div class="flex flex-col h-[550px] overflow-y-scroll">
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">1</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">2</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">3</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">4</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">5</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">6</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">7</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">8</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">9</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a>
-                    <a href="#" class="py-3 border-b flex justify-between gap-4">
-                        <h4 class="w-12 h-10 rounded-full flex items-center justify-center bg-gray-400 text-gray-600 text-2xl">10</h4>
-                        <h1 class="text-2xl font-bold">রমজানে মাদরাসা চালুর বিষয়ে যে সিদ্ধান্ত জানাল মন্ত্রণালয়</h1>
-                    </a> 
-                </div>
-                <div class="flex justify-center mt-2">
-                    <a href="#" class="w-full border py-2 bg-gray-400 text-gray-600 rounded-md text-center font-bold text-2xl">
-                        সর্বশেষ সব খবর
-                    </a>
-                </div>
+                @include('frontend.common.latest')
             </div>
         </div>
     </section>

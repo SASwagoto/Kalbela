@@ -51,10 +51,10 @@
             <div class="w-1/6 flex flex-col gap-4 rounded-md border bg-gray-100 p-2">
                 <div class="w-full">
                     <label for="category">Select Categories</label>
-                    <select class="category_select form-input rounded-md" name="category_id[]" multiple="multiple">
+                    <select class="form-input rounded-md" name="category_id">
                         <option value="">Uncategorized</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ $category->selected ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}" {{ $post->category_id == $category->id ? 'selected' : '' }}>
                                 {{ $category->ban_name.'-'.$category->eng_name }}
                             </option>
                         @endforeach
@@ -65,7 +65,7 @@
                 </div>
                 <div class="w-full">
                     <label for="tag_id">Select Tags</label>
-                    <select class="category_select form-input rounded-md" name="tag_id[]" multiple="multiple">
+                    <select class="tag_select form-input rounded-md" name="tag_id[]" multiple="multiple">
                         @foreach($tags as $tag)
                         <option value="{{ $tag->id }}" {{ $tag->selected ? 'selected' : '' }}>
                             {{ $tag->ban_name.'-'.$tag->eng_name }}
@@ -152,7 +152,7 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('.category_select').select2();
+            $('.tag_select').select2();
         });
     </script>
     <script>
