@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as FacadesRequest;
@@ -17,7 +18,8 @@ class AdvertiseController extends Controller
 
     public function index()
     {
-        return view('admin.advertise.index');
+        $ads = Advertise::where('isActive', true)->get();
+        return view('admin.advertise.index', compact('ads'));
     }
 
     public function create()

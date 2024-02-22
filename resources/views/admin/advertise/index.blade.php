@@ -36,7 +36,23 @@
                 </tr>
             </thead>
             <tbody>
-                
+                @forelse ($ads as $key => $ad)
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>
+                        <div class="w-20 rounded-md overflow-hidden">
+                            <img src="{{asset('advertise/'.$ad->image)}}" alt="">
+                        </div>
+                    </td>
+                    <td>{{$ad->title}}</td>
+                    <td>{{$ad->position}}</td>
+                    <td>{{$ad->description}}</td>
+                </tr>
+                @empty
+                    <tr>
+                        <td colspan="5">No data found</td>
+                    </tr>
+                @endforelse
                
             </tbody>
         </table>
