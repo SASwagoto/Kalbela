@@ -96,6 +96,30 @@
                 </ul>
             </li>
 
+            <li class="menu-item">
+                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link waves-effect">
+                    <span class="menu-icon"><i class="fa-solid fa-rectangle-ad"></i></span>
+                    <span class="menu-text"> Advertise </span>
+                    <span class="menu-arrow"><i class="fa-solid fa-caret-right"></i></span>
+                    
+                </a>
+
+                <ul class="sub-menu hidden">
+                    <li class="menu-item">
+                        <a href="{{route('ad.index')}}" class="menu-link">
+                            <i class="fa-solid fa-circle fa-2xs"></i>
+                            <span class="menu-text">All Advertise</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('ad.create')}}" class="menu-link">
+                            <i class="fa-solid fa-circle fa-2xs"></i>
+                            <span class="menu-text">Create Advertise</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="menu-title">Custom</li>
 
             <li class="menu-item">

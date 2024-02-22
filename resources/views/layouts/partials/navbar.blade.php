@@ -1,4 +1,4 @@
-<section class="w-full py-4 top-0 bg-white non_sticky_nav drop-shadow-md border-b">
+<section class="w-full py-4 top-0 z-50 bg-white non_sticky_nav drop-shadow-md border-b">
     <div class="container mx-auto flex justify-between font-bold px-20">
         <a href="{{route('homepage')}}">
             <i class="fa-solid fa-home"></i>

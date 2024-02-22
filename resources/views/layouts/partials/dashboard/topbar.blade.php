@@ -9,14 +9,14 @@
     <button id="button-toggle-menu" class="nav-link p-2 waves-effect me-auto">
         <span class="sr-only">Menu Toggle Button</span>
         <span class="flex items-center justify-center h-6 w-6">
-            <i class="ph ph-list text-2xl"></i>
+            <i class="fa-solid fa-bars fa-xl"></i>
         </span>
     </button>
 
     <!-- Topbar Search -->
     <div class="md:flex hidden items-center relative">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <i class="ph ph-magnifying-glass text-base"></i>
+            <i class="fa-solid fa-search fa-xl"></i>
         </div>
         <input type="search" class="form-input px-8 rounded-full  bg-gray-500/10 border-transparent focus:border-transparent" placeholder="Search...">
         <button type="button" class="absolute inset-y-0 end-0 flex items-center pe-3">

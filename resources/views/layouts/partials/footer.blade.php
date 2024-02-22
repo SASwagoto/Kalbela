@@ -9,10 +9,10 @@
                 @endif
             </div>
             <div class="flex justify-end items-center gap-4 font-bold">
-                <a href="">
+                <a href="{{route('homepage')}}}">
                     নতুন খবর
                 </a>
-                <a href="">
+                <a href="#">
                     গোপনীয়তার নীতি
                 </a>
                 <a href="">
@@ -21,7 +21,7 @@
                 <a href="">
                     মন্তব্য প্রকাশের নীতিমালা
                 </a>
-                <a href="">
+                <a href="#">
                     বাংলা কনভার্টার
                 </a>
                 <a href="">
@@ -39,13 +39,13 @@
         <div class="flex justify-between">
             <div class="w-1/2 pe-10">
                 <h3 class="text-lg font-bold">সম্পাদক ও প্রকাশক : সন্তোষ শর্মা । বিভাগীয় প্রধান (অনলাইন): পলাশ মাহমুদ</h3>
-                <p>কালবেলা মিডিয়া লিমিটেডের পক্ষে প্রকাশক কর্তৃক নিউমার্কেট সিটি কমপ্লেক্স, ৪৪/১, রহিম স্কয়ার, নিউমার্কেট, ঢাকা থেকে প্রকাশিত এবং ২৮/বি, টয়েনবি সার্কুলার রোড, মতিঝিল ঢাকা, শরীয়তপুর প্রিন্টিং প্রেস থেকে মুদ্রিত।</p>
+                <p>{{$siteInfo->address}}</p>
             </div>
             <div class="w-1/2">
-                <p>ফোন : +৮৮ ০২ ৫৫১৬১৬৬২, +৮৮ ০২ ৫৫১৬১৬৬৩ ।<br>
-                    <p>ফ্যাক্স : +৮৮ ০২ ৫৫১৬১৬৬৪ । ই-মেইল: news@kalbela.com <br>
-                    বিজ্ঞাপন বিভাগ: ফোন: +৮৮০-২-৫৫১৬১৬৭৭, ০১৭৩০ ০৯৩৩২৮ । ই-মেইল: ads@kalbela.com. <br>
-                    সার্কুলেশন : ফোন: ০১৭৩০ ০৯৩৩৪৭ । বিশ্বাস বিল্ডার্স লিমিটেডের একটি প্রকাশনা।</p>
+                <p>ফোন : {{$siteInfo->phone_a}}, {{$siteInfo->phone_b}} ।<br>
+                    <p>ফ্যাক্স : {{$siteInfo->fax_a}}, {{$siteInfo->fax_b}} । ই-মেইল: {{$siteInfo->email}} <br>
+                    বিজ্ঞাপন বিভাগ: ফোন: {{$siteInfo->adv_phone_a}}, {{$siteInfo->adv_phone_b}} । ই-মেইল: {{$siteInfo->adv_email}} <br>
+                    সার্কুলেশন : ফোন: {{$siteInfo->mobile_a}}।</p>
             </div>
         </div>
     </div>
@@ -59,16 +59,16 @@
                     <h2 class="text-xl font-bold">| সোশ্যাল মিডিয়া</h2>
                 </div>
                 <div class="flex gap-2 items-center">
-                    <a href="#">
+                    <a href="{{$siteInfo->fb_links}}">
                         <i class="fa-brands fa-square-facebook fa-2xl"></i>
                     </a>
-                    <a href="#">
+                    <a href="{{$siteInfo->x_links}}">
                         <i class="fa-brands fa-square-x-twitter fa-2xl"></i>
                     </a>
-                    <a href="#">
+                    <a href="{{$siteInfo->ln_links}}">
                         <i class="fa-brands fa-linkedin fa-2xl"></i>
                     </a>
-                    <a href="#">
+                    <a href="{{$siteInfo->inst_links}}">
                         <i class="fa-brands fa-square-instagram fa-2xl"></i>
                     </a>
                 </div>

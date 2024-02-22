@@ -67,6 +67,7 @@ class PostController extends Controller
             'slug' => $slug,
             'article' => $request->article,
             'author_id' => Auth::user()->id,
+            'category_id' => $request->category_id,
             'division_id' => $request->division_id,
             'district_id' => $request->district_id,
             'upazila_id' => $request->upazila_id,
@@ -76,15 +77,15 @@ class PostController extends Controller
             'created_at' => now()
         ]);
 
-        if($request->category_id != null){
-            foreach($request->category_id as $cat_id)
-            {
-                DB::table('post_category')->insert([
-                    'post_id' => $post,
-                    'category_id' => $cat_id
-                ]);
-            }
-        }
+        // if($request->category_id != null){
+        //     foreach($request->category_id as $cat_id)
+        //     {
+        //         DB::table('post_category')->insert([
+        //             'post_id' => $post,
+        //             'category_id' => $cat_id
+        //         ]);
+        //     }
+        // }
 
         if($request->tag_id != null){
             foreach($request->tag_id as $tag_id)
@@ -129,13 +130,7 @@ class PostController extends Controller
     {
         $post = DB::table('posts')->where('slug', $slug)->first();
         $postId = $post->id;
-        $categories = DB::table('categories')
-        ->leftJoin('post_category', function ($join) use ($postId) {
-            $join->on('categories.id', '=', 'post_category.category_id')
-                ->where('post_category.post_id', '=', $postId);
-        })
-        ->select('categories.*', DB::raw('CASE WHEN post_category.category_id IS NOT NULL THEN 1 ELSE 0 END AS selected'))
-        ->get();
+        $categories = DB::table('categories')->whereNull('deleted_at')->get();
         $tags = DB::table('tags')
         ->leftJoin('post_tag', function ($join) use ($postId) {
             $join->on('tags.id', '=', 'post_tag.tag_id')
@@ -168,6 +163,7 @@ class PostController extends Controller
         $updatePost = DB::table('posts')->where('slug', $slug)->update([
             'headline' => $request->headline,
             'article' => $request->article,
+            'category_id' => $request->category_id,
             'division_id' => $request->division_id,
             'district_id' => $request->district_id,
             'upazila_id' => $request->upazila_id,
@@ -175,18 +171,18 @@ class PostController extends Controller
             'updated_at' => now()
         ]);
 
-        if ($request->has('category_id')) {
-            DB::table('post_category')
-                ->where('post_id', $post->id)
-                ->delete(); // Remove existing associations
+        // if ($request->has('category_id')) {
+        //     DB::table('post_category')
+        //         ->where('post_id', $post->id)
+        //         ->delete(); // Remove existing associations
     
-            foreach ($request->category_id as $categoryId) {
-                DB::table('post_category')->insert([
-                    'post_id' => $post->id,
-                    'category_id' => $categoryId,
-                ]);
-            }
-        }
+        //     foreach ($request->category_id as $categoryId) {
+        //         DB::table('post_category')->insert([
+        //             'post_id' => $post->id,
+        //             'category_id' => $categoryId,
+        //         ]);
+        //     }
+        // }
 
         if ($request->has('tag_id')) {
             DB::table('post_tag')

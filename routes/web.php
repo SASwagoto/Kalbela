@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdvertiseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
@@ -22,8 +23,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
-Route::get('/all-news', [HomeController::class, 'allNews'])->name('allNews');
-Route::get('/news/{name}', [HomeController::class, 'newsBy'])->name('newsBy');
+Route::get('/news/leatest', [HomeController::class, 'allNews'])->name('allNews');
+Route::get('/news/{slug}', [HomeController::class, 'newsBy'])->name('newsBy');
+Route::get('/news/{category}/{slug}', [HomeController::class, 'singleNews'])->name('singleNews');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -76,6 +78,12 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::prefix('settings')->group(function(){
         Route::get('/', [SiteSettingsController::class, 'index'])->name('settings.index');
         Route::put('/update', [SiteSettingsController::class, 'update'])->name('settings.update');
+    });
+
+    Route::prefix('Advertise')->group(function(){
+        Route::get('/', [AdvertiseController::class, 'index'])->name('ad.index');
+        Route::get('/create', [AdvertiseController::class, 'create'])->name('ad.create');
+        Route::post('/store', [AdvertiseController::class, 'store'])->name('ad.store');
     });
 });
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('article');
             $table->string('feature_photo')->nullable();
             $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('category_id')->default(0);
             $table->unsignedInteger('division_id')->nullable();
             $table->unsignedInteger('district_id')->nullable();
             $table->unsignedInteger('upazila_id')->nullable();
@@ -25,12 +26,6 @@ return new class extends Migration
             $table->timestamp('published_at');
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::create('post_category', function(Blueprint $table){
-            $table->id();
-            $table->unsignedBigInteger('post_id');
-            $table->unsignedBigInteger('category_id');
         });
 
         Schema::create('post_tag', function(Blueprint $table){
