@@ -1,7 +1,7 @@
 <header class="w-full mt-3 border">
     <div class="container mx-auto py-2 flex items-center justify-between">
         <a href="{{route('homepage')}}" class="logo">
-            @if ($siteInfo->site_icon)
+            @if ($siteInfo->site_logo)
             <img class="max-w-60" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
             @else
             <img class="max-w-60" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">

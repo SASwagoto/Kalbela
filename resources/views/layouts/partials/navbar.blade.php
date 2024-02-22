@@ -57,7 +57,7 @@
     <div class="container mx-auto flex justify-between font-bold">
         <div class="flex justify-between items-center gap-2">
             <a href="{{route('homepage')}}">
-                @if ($siteInfo->site_icon)
+                @if ($siteInfo->site_logo)
             <img class="w-24" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
             @else
             <img class="w-24" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
