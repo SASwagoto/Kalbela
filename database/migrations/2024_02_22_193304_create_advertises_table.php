@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('advertises', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('image')->nullable();
+            $table->string('add_url');
+            $table->unsignedInteger('position');
+            $table->string('description')->nullable();
+            $table->boolean('isActive')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
