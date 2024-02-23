@@ -18,7 +18,7 @@ class AdvertiseController extends Controller
 
     public function index()
     {
-        $ads = Advertise::where('isActive', true)->get();
+        $ads = Advertise::all();
         return view('admin.advertise.index', compact('ads'));
     }
 

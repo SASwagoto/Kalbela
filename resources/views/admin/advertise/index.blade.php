@@ -31,8 +31,10 @@
                     <th>SN</th>
                     <th>Image</th>
                     <th>Title</th>
-                    <th>Author</th>
-                    <th>Publish Date</th>
+                    <th>Position</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +49,12 @@
                     <td>{{$ad->title}}</td>
                     <td>{{$ad->position}}</td>
                     <td>{{$ad->description}}</td>
+                    <td>
+                        <input type="checkbox" {{$ad->isActive == true ? 'checked' : ''}}>
+                    </td>
+                    <td>
+                        <div class="flex gap-2 justify-end"></div>
+                    </td>
                 </tr>
                 @empty
                     <tr>

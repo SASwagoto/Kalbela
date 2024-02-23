@@ -123,7 +123,11 @@
             </div>
             <div class="w-1/4">
                 <div class="flex w-full flex-col gap-6">
-                    <div class="w-full h-80 border rounded-md"></div>
+                    @if ($ad1 != null)
+                    <a href="{{$ad1->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad1->image)}}" alt="{{$ad1->title}}">
+                    </a>
+                    @endif
                     <div class="w-full h-80 border rounded-md"></div>
                 </div>
             </div>

@@ -173,6 +173,7 @@ return [
         App\Providers\MenuServiceProvider::class,
         App\Providers\SiteInfoServiceProvider::class,
         App\Providers\LatestNewsServiceProvider::class,
+        App\Providers\AdServiceProvider::class,
     ])->toArray(),
 
     /*
