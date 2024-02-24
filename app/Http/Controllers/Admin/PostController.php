@@ -53,7 +53,11 @@ class PostController extends Controller
             $isPublished = true;
             $published_at = now();
         }
+        $isFeature = false;
 
+        if($request->has('isFeature')){
+            $isFeature = $request->isFeature;
+        }
         $filename = null;
 
         if ($request->hasFile('feature_photo')) {
@@ -72,6 +76,7 @@ class PostController extends Controller
             'district_id' => $request->district_id,
             'upazila_id' => $request->upazila_id,
             'isPublished' => $isPublished,
+            'isFeature' => $isFeature,
             'published_at' => $published_at,
             'feature_photo' => $filename, // Inserting filename into the database
             'created_at' => now()
@@ -149,6 +154,11 @@ class PostController extends Controller
     {
         $post = DB::table('posts')->where('slug', $slug)->first();
 
+        $isFeature = false;
+        if($request->has('isFeature')){
+            $isFeature = $request->isFeature;
+        }
+
         if ($request->hasFile('feature_photo')) {
             if ($post->feature_photo) {
                 Storage::delete('media/' . $post->feature_photo);
@@ -167,6 +177,7 @@ class PostController extends Controller
             'division_id' => $request->division_id,
             'district_id' => $request->district_id,
             'upazila_id' => $request->upazila_id,
+            'isFeature' => $isFeature,
             'feature_photo' => $filename, // Inserting filename into the database
             'updated_at' => now()
         ]);

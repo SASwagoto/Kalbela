@@ -31,6 +31,7 @@
                     <th>SN</th>
                     <th>Image</th>
                     <th>Title</th>
+                    <th>isFeature?</th>
                     <th>Author</th>
                     <th>Publish Date</th>
                 </tr>
@@ -63,6 +64,13 @@
                                 </form>
                             </div>
                         </div>
+                    </td>
+                    <td>
+                        @if ($post->isFeature == 1)
+                            <span class="text-green-800 py-1 px-2 rounded-md bg-green-300">Feature</span>
+                        @else
+                        <span class="text-red-800 py-1 px-2 rounded-md bg-red-300">Is Not Feature</span>
+                        @endif
                     </td>
                     <td>{{$post->name}}</td>
                     <td>

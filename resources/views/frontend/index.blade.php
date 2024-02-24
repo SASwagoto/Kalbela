@@ -8,117 +8,69 @@
     <section class="my-4 w-full">
         <div class="container mx-auto flex justify-center gap-2">
             <div class="flex w-2/4 flex-col gap-4">
-                <a href="#" class="headnews flex gap-2 rounded-md border p-2">
+                @foreach ($firstPlace as $feature)
+                <a href="{{ route('singleNews', ['category' => $feature->cslug, 'slug' => $feature->nslug]) }}" class="headnews flex gap-2 rounded-md border p-2">
                     <div class="w-3/5 overflow-hidden rounded-md">
-                        <img class="w-full" src="{{ asset('frontend/images/headnews.jpg') }}" alt="">
+                        @if ($feature->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$feature->feature_photo)}}" alt="">
+                        @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                        @endif
                     </div>
                     <div class="w-2/5">
-                        <h2 class="text-3xl font-bold">ইমরান খানকে ঠেকাতে মরিয়া নওয়াজ, নিচ্ছেন নয়া কৌশল</h2>
-                        <p class="mt-2 text-sm">পাকিস্তানে নির্বাচনে পিছিয়ে থেকেও এককভাবে সবচেয়ে বেশি আসন পাওয়ার দাবি করেছেন
-                            দেশটির সাবেক প্রধানমন্ত্রী ও পিএমএল (এন)-এর নেতা নওয়াজ..</p>
+                        <h2 class="text-3xl font-bold">{{$feature->headline}}</h2>
+                        <p class="mt-2 text-sm">{!! Str::of($feature->article)->words(18, ' ...') !!}</p>
                     </div>
                 </a>
+                @endforeach
                 <div class="grid grid-cols-3 gap-4 rounded-md border p-2">
-                    <a href="#" class="flex flex-col gap-2">
+                    @foreach ($thirdPlace as $third)
+                    <a href="{{ route('singleNews', ['category' => $third->cslug, 'slug' => $third->nslug]) }}" class="flex flex-col gap-2">
                         <div class="w-full overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/news2.webp') }}" alt="">
+                            @if ($third->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$third->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                            <h3 class="text-lg font-bold">{{$third->headline}}</h3>
                         </div>
                     </a>
-                    <a href="#" class="flex flex-col gap-2">
-                        <div class="w-full overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/news3.webp') }}" alt="">
-                        </div>
-                        <div class="">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex flex-col gap-2">
-                        <div class="w-full overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/news4.webp') }}" alt="">
-                        </div>
-                        <div class="">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex flex-col gap-2">
-                        <div class="w-full overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/news5.webp') }}" alt="">
-                        </div>
-                        <div class="">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex flex-col gap-2">
-                        <div class="w-full overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/news6.webp') }}" alt="">
-                        </div>
-                        <div class="">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex flex-col gap-2">
-                        <div class="w-full overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/news7.webp') }}" alt="">
-                        </div>
-                        <div class="">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
             <div class="w-1/4">
                 <div class="flex flex-col rounded-md border p-2">
-                    <a href="#" class="flex flex-col gap-1 border-b py-2">
+                    @foreach ($secondPlace as $second)
+                    <a href="{{ route('singleNews', ['category' => $second->cslug, 'slug' => $second->nslug]) }}" class="flex flex-col gap-1 border-b py-2">
                         <div class="overflow-hidden rounded-md">
-                            <img class="w-full" src="{{ asset('frontend/images/news1.webp') }}" alt="">
+                            @if ($second->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$second->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                            <h3 class="text-lg font-bold">{{$second->headline}}</h3>
                         </div>
                     </a>
-                    <a href="#" class="flex gap-2 border-b py-2">
+                    @endforeach
+                    
+                    @foreach ($fourthPlace as $fourth)
+                    <a href="{{ route('singleNews', ['category' => $fourth->cslug, 'slug' => $fourth->nslug]) }}" class="flex gap-2 border-b py-2">
                         <div class="w-1/3 overflow-hidden">
-                            <img class="w-full" src="{{ asset('frontend/images/news3.webp') }}" alt="">
+                            @if ($fourth->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$fourth->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="mt-1 w-2/3">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                            <h3 class="text-lg font-bold">{{$second->headline}}</h3>
                         </div>
                     </a>
-                    <a href="#" class="flex gap-2 border-b py-2">
-                        <div class="w-1/3 overflow-hidden">
-                            <img class="w-full" src="{{ asset('frontend/images/news4.webp') }}" alt="">
-                        </div>
-                        <div class="mt-1 w-2/3">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex gap-2 border-b py-2">
-                        <div class="w-1/3 overflow-hidden">
-                            <img class="w-full" src="{{ asset('frontend/images/news7.webp') }}" alt="">
-                        </div>
-                        <div class="mt-1 w-2/3">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex gap-2 border-b py-2">
-                        <div class="w-1/3 overflow-hidden">
-                            <img class="w-full" src="{{ asset('frontend/images/news4.webp') }}" alt="">
-                        </div>
-                        <div class="mt-1 w-2/3">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
-                    <a href="#" class="flex gap-2 border-b py-2">
-                        <div class="w-1/3 overflow-hidden">
-                            <img class="w-full" src="{{ asset('frontend/images/news5.webp') }}" alt="">
-                        </div>
-                        <div class="mt-1 w-2/3">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
             <div class="w-1/4">
@@ -146,113 +98,31 @@
     <section class="my-5 w-full">
         <div class="container mx-auto rounded-md border p-2">
             <div class="flex items-center justify-between py-2">
-                <a href="#" class="flex w-1/2 gap-2 text-xl font-bold">
+                <h2 class="flex w-1/2 gap-2 text-xl font-bold">
                     <i class="fa-solid fa-video"></i>
                     ভিডিও
-                </a>
-                <a href="#" class="text-xl font-bold">
+                </h2>
+                <a href="{{route('newsBy', 'video')}}" class="text-xl font-bold">
                     সব ভিডিও
                     <i class="fa-solid fa-arrow-right ms-2 rounded-full border border-black p-2"></i></span>
                 </a>
             </div>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide flex flex-col justify-center">
+                    @foreach ($videonews as $item)
+                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="swiper-slide flex flex-col justify-center">
                         <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
+                            @if ($item->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$item->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
+                            <h3 class="text-lg font-bold">{{$item->headline}}</h3>
                         </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1508.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1508.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1508.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
-                            <img src="{{ asset('frontend/images/cover_photo-1505.jpg') }}" alt="">
-                        </div>
-                        <div class="mt-1">
-                            <h3 class="text-lg font-bold">'শীতলক্ষ্যা ধ্বংসে পরিবেশ অধিদপ্তরও জড়িত'</h3>
-                        </div>
-                    </div>
+                    </a>
+                    @endforeach
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -543,60 +413,29 @@
         <div class="container flex justify-between gap-6 mx-auto">
             <div class="w-3/4 flex flex-col pb-2 border-b">
                 <div class="flex justify-between items-center py-2 border-b-4 border-black">
-                    <a href="#" class="flex justify-start items-center gap-4">
+                    <div class="flex justify-start items-center gap-4">
                         <i class="fa-solid fa-landmark fa-xl"></i>
                         <h3 class="text-2xl font-bold">সারাদেশ</h3>
-                    </a>
-                    <a href="#" class="text-xl font-bold">
+                    </div>
+                    <a href="{{route('newsBy', 'country')}}" class="text-xl font-bold">
                         <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
                     </a>
                 </div>
                 <div class="grid grid-cols-5 gap-4 mt-4">
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                    @foreach ($country as $item)
+                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-3 rounded-md border">
                         <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
+                            @if ($item->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$item->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                            <h2 class="text-2xl font-bold mb-4">{{$item->headline}}</h2>
                         </div>
                     </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
             <div class="w-1/4">
@@ -626,60 +465,29 @@
         <div class="container flex justify-between gap-6 mx-auto">
             <div class="w-3/4 flex flex-col pb-2 border-b">
                 <div class="flex justify-between items-center py-2 border-b-4 border-black">
-                    <a href="#" class="flex justify-start items-center gap-4">
-                        <i class="fa-solid fa-filter fa-xl"></i>
-                        <h3 class="text-2xl font-bold">বাছাইকৃত</h3>
-                    </a>
-                    <a href="#" class="text-xl font-bold">
+                    <div class="flex justify-start items-center gap-4">
+                        <i class="fa-brands fa-old-republic fa-xl"></i>
+                        <h3 class="text-2xl font-bold">রাজনীতি</h3>
+                    </div>
+                    <a href="{{route('newsBy', 'politics')}}" class="text-xl font-bold">
                         <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
                     </a>
                 </div>
                 <div class="grid grid-cols-5 gap-4 mt-4">
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                    @foreach ($politics as $item)
+                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-3 rounded-md border">
                         <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
+                            @if ($item->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$item->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                            <h2 class="text-2xl font-bold mb-4">{{$item->headline}}</h2>
                         </div>
                     </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
             <div class="w-1/4">
@@ -696,60 +504,29 @@
         <div class="container flex justify-between gap-6 mx-auto">
             <div class="w-3/4 flex flex-col pb-2 border-b">
                 <div class="flex justify-between items-center py-2 border-b-4 border-black">
-                    <a href="#" class="flex justify-start items-center gap-4">
+                    <div class="flex justify-start items-center gap-4">
                         <i class="fa-solid fa-landmark fa-xl"></i>
                         <h3 class="text-2xl font-bold">জাতীয়</h3>
-                    </a>
-                    <a href="#" class="text-xl font-bold">
+                    </div>
+                    <a href="{{route('newsBy', 'national')}}" class="text-xl font-bold">
                         <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
                     </a>
                 </div>
                 <div class="grid grid-cols-5 gap-4 mt-4">
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                    @foreach ($nationals as $item)
+                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-3 rounded-md border">
                         <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
+                            @if ($item->feature_photo)
+                            <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$item->feature_photo)}}" alt="">
+                            @else
+                            <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
+                            @endif
                         </div>
                         <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                            <h2 class="text-2xl font-bold mb-4">{{$item->headline}}</h2>
                         </div>
                     </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
             <div class="w-1/4">
@@ -768,6 +545,4 @@
 @push('js')
     <script src="{{ asset('frontend/plugins/swiperjs/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/customSlider.js') }}"></script>
-    <script></script>
-    <script></script>
 @endpush
