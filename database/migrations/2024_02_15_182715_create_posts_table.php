@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('district_id')->nullable();
             $table->unsignedInteger('upazila_id')->nullable();
             $table->boolean('isPublished')->default(true);
+            $table->boolean('isFeature')->default(false);
             $table->timestamp('published_at');
             $table->timestamps();
             $table->softDeletes();
@@ -49,7 +50,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('posts');
-        Schema::dropIfExists('post_category');
         Schema::dropIfExists('post_tag');
         Schema::dropIfExists('post_meta');
     }

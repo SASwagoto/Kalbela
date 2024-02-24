@@ -12,6 +12,7 @@
                 <a href="{{route('homepage')}}}">
                     নতুন খবর
                 </a>
+                
                 <a href="#">
                     গোপনীয়তার নীতি
                 </a>
@@ -41,7 +42,7 @@
                 <h3 class="text-lg font-bold">সম্পাদক ও প্রকাশক : সন্তোষ শর্মা । বিভাগীয় প্রধান (অনলাইন): পলাশ মাহমুদ</h3>
                 <p>{{$siteInfo->address}}</p>
             </div>
-            <div class="w-1/2">
+            <div class="w-1/2 text-end">
                 <p>ফোন : {{$siteInfo->phone_a}}, {{$siteInfo->phone_b}} ।<br>
                     <p>ফ্যাক্স : {{$siteInfo->fax_a}}, {{$siteInfo->fax_b}} । ই-মেইল: {{$siteInfo->email}} <br>
                     বিজ্ঞাপন বিভাগ: ফোন: {{$siteInfo->adv_phone_a}}, {{$siteInfo->adv_phone_b}} । ই-মেইল: {{$siteInfo->adv_email}} <br>
@@ -101,7 +102,7 @@
 </section>
 <footer class="w-full py-5">
     <div  class="container mx-auto flex justify-between">
-        <p>স্বত্ব &copy; নতুন খবর মিডিয়া লিমিটেড {{bangla_date(time(), 'en', 'y')}}</p>
-        <p>এই ওয়েবসাইটের কোনো লেখা, ছবি, ভিডিও অনুমতি ছাড়া ব্যবহার বেআইনি।</p>
+        <p>স্বত্ব &copy; {{$siteInfo->copyright}} {{bangla_date(time(), 'en', 'y')}}</p>
+        <p>{{$siteInfo->footer_credit}}</p>
     </div>
 </footer>

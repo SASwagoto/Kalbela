@@ -39,7 +39,7 @@ class HomeController extends Controller
         ->where(function ($query) use ($catId) {
             $query->where('c.id', $catId)
                 ->orWhere('c.parent_id', $catId);
-        })
+            })
         ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
         ->get();
         return view('frontend.allnews', compact('newses', 'category'));

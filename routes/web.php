@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdvertiseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SiteSettingsController;
 use App\Http\Controllers\Admin\TagController;
@@ -80,10 +81,19 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::put('/update', [SiteSettingsController::class, 'update'])->name('settings.update');
     });
 
-    Route::prefix('Advertise')->group(function(){
+    Route::prefix('advertise')->group(function(){
         Route::get('/', [AdvertiseController::class, 'index'])->name('ad.index');
         Route::get('/create', [AdvertiseController::class, 'create'])->name('ad.create');
         Route::post('/store', [AdvertiseController::class, 'store'])->name('ad.store');
+    });
+
+    Route::prefix('page')->group(function(){
+        Route::get('/', [PageController::class, 'index'])->name('page.index');
+        Route::get('/create', [PageController::class, 'create'])->name('page.create');
+        Route::post('/store', [PageController::class, 'store'])->name('page.store');
+        Route::get('/edit/{slug}', [PageController::class, 'edit'])->name('page.edit');
+        Route::put('/update/{slug}', [PageController::class, 'update'])->name('page.update');
+        Route::delete('/delete/{slug}', [PageController::class, 'delete'])->name('page.delete');
     });
 });
 

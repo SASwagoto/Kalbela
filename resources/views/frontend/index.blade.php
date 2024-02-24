@@ -128,7 +128,16 @@
                         <img class="w-full" src="{{asset('advertise/'.$ad1->image)}}" alt="{{$ad1->title}}">
                     </a>
                     @endif
-                    <div class="w-full h-80 border rounded-md"></div>
+                    @if ($ad2 != null)
+                    <a href="{{$ad2->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad2->image)}}" alt="{{$ad2->title}}">
+                    </a>
+                    @endif
+                    @if ($ad3 != null)
+                    <a href="{{$ad3->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad3->image)}}" alt="{{$ad3->title}}">
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -139,7 +148,7 @@
             <div class="flex items-center justify-between py-2">
                 <a href="#" class="flex w-1/2 gap-2 text-xl font-bold">
                     <i class="fa-solid fa-video"></i>
-                    ভিডিও স্টোরি
+                    ভিডিও
                 </a>
                 <a href="#" class="text-xl font-bold">
                     সব ভিডিও
@@ -251,7 +260,7 @@
         </div>
     </section>
 
-    <section class="my-5 w-full">
+    {{-- <section class="my-5 w-full">
         <div class="container mx-auto flex justify-between gap-4">
             <div class="w-1/3 flex flex-col p-2 border rounded-md">
                 <div class="flex items-center gap-2 py-2 border-b-2 border-red-700">
@@ -529,139 +538,7 @@
                 @include('frontend.common.latest')
             </div>
         </div>
-    </section>
-    <section class="w-full my-5">
-        <div class="container flex justify-between gap-6 mx-auto">
-            <div class="w-3/4 flex flex-col pb-2 border-b">
-                <div class="flex justify-between items-center py-2 border-b-4 border-black">
-                    <a href="#" class="flex justify-start items-center gap-4">
-                        <i class="fa-solid fa-filter fa-xl"></i>
-                        <h3 class="text-2xl font-bold">বাছাইকৃত</h3>
-                    </a>
-                    <a href="#" class="text-xl font-bold">
-                        <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-5 gap-4 mt-4">
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="w-1/4">
-                <div class="w-full h-[350px] border"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="w-full my-5">
-        <div class="container flex justify-between gap-6 mx-auto">
-            <div class="w-3/4 flex flex-col pb-2 border-b">
-                <div class="flex justify-between items-center py-2 border-b-4 border-black">
-                    <a href="#" class="flex justify-start items-center gap-4">
-                        <i class="fa-solid fa-landmark fa-xl"></i>
-                        <h3 class="text-2xl font-bold">জাতীয়</h3>
-                    </a>
-                    <a href="#" class="text-xl font-bold">
-                        <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-5 gap-4 mt-4">
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
-                        <div class="w-full overflow-hidden">
-                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
-                        </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
-                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="w-1/4">
-                <div class="w-full h-[350px] border"></div>
-            </div>
-        </div>
-    </section>
-
+    </section> --}}
     <section class="w-full my-5">
         <div class="container flex justify-between gap-6 mx-auto">
             <div class="w-3/4 flex flex-col pb-2 border-b">
@@ -744,6 +621,148 @@
             </div>
         </div>
     </section>
+
+    <section class="w-full my-5">
+        <div class="container flex justify-between gap-6 mx-auto">
+            <div class="w-3/4 flex flex-col pb-2 border-b">
+                <div class="flex justify-between items-center py-2 border-b-4 border-black">
+                    <a href="#" class="flex justify-start items-center gap-4">
+                        <i class="fa-solid fa-filter fa-xl"></i>
+                        <h3 class="text-2xl font-bold">বাছাইকৃত</h3>
+                    </a>
+                    <a href="#" class="text-xl font-bold">
+                        <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-5 gap-4 mt-4">
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="w-1/4">
+                @if ($ad4 != null)
+                    <a href="{{$ad4->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad4->image)}}" alt="{{$ad4->title}}">
+                    </a>
+                @endif
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full my-5">
+        <div class="container flex justify-between gap-6 mx-auto">
+            <div class="w-3/4 flex flex-col pb-2 border-b">
+                <div class="flex justify-between items-center py-2 border-b-4 border-black">
+                    <a href="#" class="flex justify-start items-center gap-4">
+                        <i class="fa-solid fa-landmark fa-xl"></i>
+                        <h3 class="text-2xl font-bold">জাতীয়</h3>
+                    </a>
+                    <a href="#" class="text-xl font-bold">
+                        <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-5 gap-4 mt-4">
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news2.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news3.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news4.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news5.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                    <a href="#" class="group flex flex-col gap-3 rounded-md border">
+                        <div class="w-full overflow-hidden">
+                            <img class="w-full" src="{{asset('frontend/images/news6.webp')}}" alt="">
+                        </div>
+                        <div class="p-2">
+                            <h2 class="text-2xl font-bold mb-4">এখনই বড় কর্মসূচিতে যাচ্ছে না বিএনপি</h2>
+                            <p class="text-sm">৭ জানুয়ারির দ্বাদশ জাতীয় সংসদ নির্বাচনকে 'একতরফা' আখ্যা...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="w-1/4">
+                @if ($ad5 != null)
+                    <a href="{{$ad5->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad5->image)}}" alt="{{$ad5->title}}">
+                    </a>
+                @endif
+            </div>
+        </div>
+    </section>
+
+    
 @endsection
 
 @push('js')
