@@ -127,6 +127,10 @@
                         <span class="text-red-700">{{$message}}</span>
                     @enderror
                 </div>
+                <div class="w-full flex gap-2 items-center">
+                    <input type="checkbox" name="isFeature" value="1" {{$post->isFeature == 1 ? 'checked' : ''}} class="rounded-full">
+                    <label class="text-lg" for="isFeature">Enable as Feature?</label>
+                </div>
                 <div class="w-full flex justify-end gap-4">
                     <button type="submit" class="py-2 px-4 bg-blue-600 text-white rounded-md">Update</button>
                 </div>

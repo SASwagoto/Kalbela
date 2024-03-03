@@ -49,9 +49,8 @@
             </div>
             <div class="w-1/6 flex flex-col gap-4 rounded-md border bg-gray-100 p-2">
                 <div class="w-full">
-                    <label for="category">Select Categories</label>
-                    <select class="form-input rounded-md" name="category_id">
-                        <option value="">Uncategorized</option>
+                    <label for="category">Select Categories <span class="text-red-700">*</span></label>
+                    <select class="form-input rounded-md" name="category_id" required>
                         @forelse ($categories as $category)
                             <option value="{{$category->id}}">{{$category->ban_name.'-'.$category->eng_name}}</option>
                         @empty
@@ -117,6 +116,10 @@
                     @error('feature_photo')
                         <span class="text-red-700">{{$message}}</span>
                     @enderror
+                </div>
+                <div class="w-full flex gap-2 items-center">
+                    <input type="checkbox" name="isFeature" value="1" class="rounded-full">
+                    <label class="text-lg" for="isFeature">Enable as Feature?</label>
                 </div>
                 <div class="w-full flex justify-end gap-4">
                     <button type="submit" name="draft" class="border rounded-md py-2 px-4 bg-gray-200">Save Drafts</button>

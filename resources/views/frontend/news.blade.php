@@ -53,6 +53,13 @@
                     @endforelse
                 </div>
             </div>
+            <div class="w-full mt-4">
+                @if ($ad7 != null)
+                    <a href="{{$ad7->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad7->image)}}" alt="{{$ad7->title}}">
+                    </a>
+                @endif
+            </div>
         </div>
         <div class="w-3/6 flex flex-col gap-2">
             <div class="main_article flex flex-col gap-4">
@@ -68,14 +75,23 @@
                     
                     {{-- <div class="flex justify-end text-3xl my-2">{!! $shareButtons !!}</div> --}}
                 </div>
+                <div class="feature_photo flex items-center py-2 px-10">
+                    @if ($news->feature_photo)
+                        <img class="w-full" src="{{asset('media/'.$news->feature_photo)}}" alt="">
+                    @endif
+                </div>
                 <div class="article">
                     {!! $news->article !!}
                 </div>
             </div>
         </div>
         <div class="w-2/6 flex flex-col gap-6">
-            <div class="w-full h-80 border rounded-md">
-
+            <div class="w-full border rounded-md">
+                @if ($ad6 != null)
+                    <a href="{{$ad6->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
+                        <img class="w-full" src="{{asset('advertise/'.$ad6->image)}}" alt="{{$ad6->title}}">
+                    </a>
+                @endif
             </div>
             <div class="w-full">
                 @include('frontend.common.latest')
