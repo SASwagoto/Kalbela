@@ -1,10 +1,10 @@
 <header class="w-full mt-3 border">
-    <div class="container mx-auto py-2 flex items-center md:justify-between justify-center">
+    <div class="container mx-auto py-2 flex items-center justify-between">
         <a href="{{route('homepage')}}" class="logo">
             @if ($siteInfo->site_logo)
-            <img class="max-w-60" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
+            <img class="w-40 md:w-60" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
             @else
-            <img class="max-w-60" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
+            <img class="w-40 md:w-60" src="{{asset('frontend/images/notunkhobor.png')}}" alt="Logo">
             @endif
         </a>
         <div class="menu hidden md:flex justify-center gap-4">

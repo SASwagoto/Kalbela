@@ -1,5 +1,5 @@
 <section class="w-full py-4 top-0 z-50 bg-white non_sticky_nav drop-shadow-md border-b">
-    <div class="md:container mx-auto flex md:justify-between overflow-x-auto font-bold px-20">
+    <div class="container mx-auto flex justify-between overflow-x-auto font-bold px-20">
         <a href="{{route('homepage')}}">
             <i class="fa-solid fa-home"></i>
         </a>
