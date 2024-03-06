@@ -8,20 +8,6 @@
     <section class="w-full my-5">
         <div class="container flex flex-col-reverse md:flex-row justify-between gap-6 mx-auto">
             <div class="w-full md:w-3/4 flex flex-col px-2 md:px-0">
-                <div class="w-full flex gap-2">
-                    <a href="{{route('homepage')}}"><i class="fa-solid fa-home"></i></a>
-                    <span>/</span>
-                    @if (!$category)
-                    <h3 class="text-lg font-bold text-blue-700">সর্বশেষ সব খবর</h3>
-                    @elseif($category->pbname)
-                    <a href="{{route('newsBy', $category->pslug)}}" class="text-lg font-bold text-blue-700">{{$category->pbname}}</a>
-                    <span>/</span>
-                    <h3 class="text-lg font-bold text-blue-700">{{$category->cbname}}</h3>
-                    @else
-                    <h3 class="text-lg font-bold text-blue-700">{{$category->cbname}}</h3>
-                    @endif
-                    
-                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 my-4">
                     @forelse ($newses as $news)
                     <a href="{{ route('singleNews', ['category' => $news->cslug, 'slug' => $news->nslug]) }}" class="flex group gap-2">
