@@ -16,17 +16,17 @@ class FrontendController extends Controller
 
     public function search(Request $request)
     {
-        
+
         $newses = DB::table('posts')
             ->orderBy('posts.id', 'desc')
-            ->where('posts.	upazila_id', $request->upazila_id)
+            ->where('posts.upazila_id', $request->upazila_id)
             ->orWhere('district_id', $request->district_id)
-            ->orWhere('division', $request->division)
+            ->orWhere('division_id', $request->division)
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
             ->paginate(20);
-        return view('frontend.allnews', compact('newses', 'category'));
+        return view('frontend.search', compact('newses'));
     }
 
     public function get_districts($id)
