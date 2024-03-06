@@ -29,6 +29,7 @@ Route::get('/news/leatest', [HomeController::class, 'allNews'])->name('allNews')
 Route::get('/news/{slug}', [HomeController::class, 'newsBy'])->name('newsBy');
 Route::get('/news/{category}/{slug}', [HomeController::class, 'singleNews'])->name('singleNews');
 Route::get('/pages/{slug}', [FrontendController::class, 'pageView'])->name('pages.view');
+Route::get('/search', [FrontendController::class, 'search'])->name('search');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -96,7 +97,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     });
 });
 
-Route::get('/get_districts/{id}', [PostController::class, 'get_districts'])->name('getDistricts');
-Route::get('/get_upazila/{id}', [PostController::class, 'get_upazila'])->name('getUpazila');
+Route::get('/get_districts/{id}', [FrontendController::class, 'get_districts'])->name('getDistricts');
+Route::get('/get_upazila/{id}', [FrontendController::class, 'get_upazila'])->name('getUpazila');
 
 require __DIR__.'/auth.php';

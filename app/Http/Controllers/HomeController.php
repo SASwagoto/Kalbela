@@ -81,7 +81,9 @@ class HomeController extends Controller
             ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
             ->get();
 
-        return view('frontend.index', compact('firstPlace', 'secondPlace', 'thirdPlace', 'fourthPlace', 'videonews', 'country', 'politics', 'nationals'));
+            $divs = DB::table('divisions')->get();
+
+        return view('frontend.index', compact('firstPlace', 'secondPlace', 'thirdPlace', 'fourthPlace', 'videonews', 'country', 'politics', 'nationals', 'divs'));
     }
 
     public function allNews()

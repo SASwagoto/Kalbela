@@ -245,17 +245,5 @@ class PostController extends Controller
         }
     }
 
-    public function get_districts($id)
-    {
-        $name = 'Districts';
-        $dataset = DB::table('districts')->where('division_id', $id)->select('id', 'bn_name')->get();
-        return view('admin.post.getDist', compact('dataset', 'name'));
-    }
-
-    public function get_upazila($id)
-    {
-        $name = 'Upazila';
-        $dataset = DB::table('upazilas')->where('district_id', $id)->select('id', 'bn_name')->get();
-        return view('admin.post.getDist', compact('dataset', 'name'));
-    }
+   
 }

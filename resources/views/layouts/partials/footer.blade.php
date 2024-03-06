@@ -13,8 +13,8 @@
                     নতুন খবর
                 </a>
                 @foreach ($pages as $page)
-                <a href="{{route('homepage')}}}">
-                    নতুন খবর
+                <a href="{{route('pages.view',$page->slug)}}">
+                    {{$page->page_title_b}}
                 </a>
                 @endforeach
             </div>

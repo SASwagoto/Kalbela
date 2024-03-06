@@ -443,15 +443,20 @@
                     <div class="m-4 border-l-4 border-yellow-200">
                         <h3 class="text-xl font-bold ms-4">আমার এলাকার সংবাদ</h3>
                     </div>
-                    <form action="#">
+                    <form action="{{route('search')}}" method="GET">
                         <select class="w-full p-2 border rounded-md mb-4" name="division" id="division">
                             <option value="">বিভাগ</option>
+                            @forelse ($divs as $div)
+                            <option value="{{$div->id}}">{{$div->bn_name}}</option>
+                            @empty
+                                <option value="" disabled>No data found</option>
+                            @endforelse
                         </select>
-                        <select class="w-full p-2 border rounded-md mb-4" name="division" id="division">
-                            <option value="">বিভাগ</option>
+                        <select class="w-full p-2 border rounded-md mb-4" name="district_id" id="districts">
+                            <option value="">জেলা</option>
                         </select>
-                        <select class="w-full p-2 border rounded-md mb-4" name="division" id="division">
-                            <option value="">বিভাগ</option>
+                        <select class="w-full p-2 border rounded-md mb-4" name="upazila_id" id="upazila">
+                            <option value="">উপজেলা</option>
                         </select>
                         <button type="submit" class="w-full py-2 rounded-md bg-yellow-200 flex items-center justify-center gap-4 text-xl font-bold">অনুসন্ধান <i class="fa-solid fa-search"></i>
                         </button>
@@ -545,4 +550,35 @@
 @push('js')
     <script src="{{ asset('frontend/plugins/swiperjs/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/customSlider.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#division').on('change', function(){
+                var divId = $(this).val();
+                $.ajax({
+                    url : '/get_districts/' + divId,
+                    type: 'GET',
+                    success: function(data){
+                        $('#districts').html(data);
+                    },
+                    error: function(xhr){
+                        
+                    }
+                });
+            });
+            $('#districts').on('change', function(){
+                var distId = $(this).val();
+                $.ajax({
+                    url : '/get_upazila/' + distId,
+                    type: 'GET',
+                    success: function(data){
+                        $('#upazila').html(data);
+                        //console.log(data);
+                    },
+                    error: function(xhr){
+                        
+                    }
+                });
+            });
+        });
+    </script>
 @endpush
