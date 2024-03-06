@@ -1,5 +1,5 @@
 <header class="w-full mt-3 border">
-    <div class="container mx-auto py-2 flex items-center justify-between">
+    <div class="md:container md:mx-auto py-2 mx-10 flex items-center justify-between">
         <a href="{{route('homepage')}}" class="logo">
             @if ($siteInfo->site_logo)
             <img class="w-40 md:w-60" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
@@ -39,6 +39,11 @@
             </a>
             <a href="#" class="border rounded-full py-1 px-2 bg-gray-300">
                 <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+        <div class="block md:hidden">
+            <a href="#" class="megamenu">
+                <i class="fa-solid fa-bars"></i>
             </a>
         </div>
     </div>

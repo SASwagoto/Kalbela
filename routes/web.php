@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SiteSettingsController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/news/leatest', [HomeController::class, 'allNews'])->name('allNews');
 Route::get('/news/{slug}', [HomeController::class, 'newsBy'])->name('newsBy');
 Route::get('/news/{category}/{slug}', [HomeController::class, 'singleNews'])->name('singleNews');
+Route::get('/pages/{slug}', [FrontendController::class, 'pageView'])->name('pages.view');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -66,9 +68,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::get('/edit/{slug}', [PostController::class, 'edit'])->name('post.edit');
         Route::put('/update/{slug}', [PostController::class, 'update'])->name('post.update');
         Route::delete('/delete/{slug}', [PostController::class, 'delete'])->name('post.delete');
-
-        Route::get('/get_districts/{id}', [PostController::class, 'get_districts'])->name('getDistricts');
-        Route::get('/get_upazila/{id}', [PostController::class, 'get_upazila'])->name('getUpazila');
     });
 
     Route::prefix('primary-menu')->group(function(){
@@ -96,5 +95,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::delete('/delete/{slug}', [PageController::class, 'delete'])->name('page.delete');
     });
 });
+
+Route::get('/get_districts/{id}', [PostController::class, 'get_districts'])->name('getDistricts');
+Route::get('/get_upazila/{id}', [PostController::class, 'get_upazila'])->name('getUpazila');
 
 require __DIR__.'/auth.php';

@@ -115,9 +115,8 @@ class PostController extends Controller
     {
         $post = DB::table('posts as p')
             ->where('p.slug', $slug) // Use alias to specify the table for slug column
-            ->leftJoin('post_category', 'p.id', '=', 'post_category.post_id')
             ->leftJoin('post_tag', 'p.id', '=', 'post_tag.post_id')
-            ->leftJoin('categories', 'post_category.category_id', '=', 'categories.id')
+            ->leftJoin('categories', 'p.category_id', '=', 'categories.id')
             ->leftJoin('tags', 'post_tag.tag_id', '=', 'tags.id')
             ->select(
                 'p.*',

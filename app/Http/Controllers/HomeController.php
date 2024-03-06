@@ -15,16 +15,16 @@ class HomeController extends Controller
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->select('posts.headline', 'posts.article', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
-            ->get();
+            ->limit(12);
 
             $totalPosts = $Feature->count();
 
             // Split the results into four separate sets based on the total number of posts
             if ($totalPosts >= 1) {
-                $firstPlace = $Feature->take(1);
-                $secondPlace = $Feature->slice(1, 1); // 2nd post
-                $thirdPlace = $Feature->slice(2, 6); // 3rd to 8th post
-                $fourthPlace = $Feature->slice(8); // 9th to last post
+                $firstPlace = $Feature->take(1)->get();
+                $secondPlace = $Feature->skip(1)->take(1)->get(); // 2nd post
+                $thirdPlace = $Feature->skip(2)->take(6)->get(); // 3rd to 8th post
+                $fourthPlace = $Feature->skip(8)->get(); // 9th to last post
             } else {
                 $firstPlace = collect(); // Empty collection if no posts found
                 $secondPlace = collect();
@@ -35,6 +35,7 @@ class HomeController extends Controller
             $video = 10;
 
             $videonews = DB::table('posts')
+            ->orderBy('posts.id', 'desc')
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->where(function ($query) use ($video) {
@@ -46,6 +47,7 @@ class HomeController extends Controller
 
             $countryId = 4;
             $country = DB::table('posts')
+            ->orderBy('posts.id', 'desc')
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->where(function ($query) use ($countryId) {
@@ -57,6 +59,7 @@ class HomeController extends Controller
 
             $politicsId = 2;
             $politics = DB::table('posts')
+            ->orderBy('posts.id', 'desc')
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->where(function ($query) use ($politicsId) {
@@ -68,6 +71,7 @@ class HomeController extends Controller
 
             $nationalId = 1;
             $nationals = DB::table('posts')
+            ->orderBy('posts.id', 'desc')
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->where(function ($query) use ($nationalId) {
@@ -84,10 +88,11 @@ class HomeController extends Controller
     {
         $category = '';
         $newses = DB::table('posts')
+            ->orderBy('posts.id', 'desc')
             ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
-            ->get();
+            ->paginate(20);
         return view('frontend.allnews', compact('newses', 'category'));
     }
 
@@ -102,6 +107,7 @@ class HomeController extends Controller
         $catId = $category->cid;
 
         $newses = DB::table('posts')
+        ->orderBy('posts.id', 'desc')
         ->leftjoin('categories as c', 'posts.category_id', '=', 'c.id')
         ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
         ->where(function ($query) use ($catId) {
@@ -109,7 +115,7 @@ class HomeController extends Controller
                 ->orWhere('c.parent_id', $catId);
             })
         ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
-        ->get();
+        ->paginate(20);
         return view('frontend.allnews', compact('newses', 'category'));
     }
 

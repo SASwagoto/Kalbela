@@ -155,7 +155,7 @@
             $('#division').on('change', function(){
                 var divId = $(this).val();
                 $.ajax({
-                    url : '/posts/get_districts/' + divId,
+                    url : '/get_districts/' + divId,
                     type: 'GET',
                     success: function(data){
                         $('#districts').html(data);
@@ -168,7 +168,7 @@
             $('#districts').on('change', function(){
                 var distId = $(this).val();
                 $.ajax({
-                    url : '/posts/get_upazila/' + distId,
+                    url : '/get_upazila/' + distId,
                     type: 'GET',
                     success: function(data){
                         $('#upazila').html(data);

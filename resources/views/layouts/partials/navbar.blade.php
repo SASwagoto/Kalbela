@@ -1,5 +1,5 @@
-<section class="w-full py-4 top-0 z-50 bg-white non_sticky_nav drop-shadow-md border-b">
-    <div class="container mx-auto flex justify-between overflow-x-auto font-bold px-20">
+<section class="w-full py-2 md:py-4 top-0 z-50 bg-white non_sticky_nav drop-shadow-md border-b">
+    <div class="container mx-auto flex justify-between gap-4 no-scrollbar overflow-x-auto font-bold px-4 md:px-20 ">
         <a href="{{route('homepage')}}">
             <i class="fa-solid fa-home"></i>
         </a>
@@ -12,7 +12,7 @@
         </a>
         @endforeach
         
-        <div class="group px-4">
+        <div class="group px-4 hidden md:block">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>
             </a>
@@ -54,8 +54,8 @@
 </section>
 
 <section class="w-full py-3 bg-white fixed hidden top-0 z-50 sticky_nav drop-shadow-md border-b">
-    <div class="container mx-auto flex justify-between font-bold">
-        <div class="flex justify-between items-center gap-2">
+    <div class="container mx-auto flex justify-between gap-4 no-scrollbar overflow-x-auto font-bold px-4 md:px-20 ">
+        <div class="hidden md:flex justify-between items-center gap-2">
             <a href="{{route('homepage')}}">
                 @if ($siteInfo->site_logo)
             <img class="w-24" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
@@ -76,7 +76,7 @@
             {{$item->ban_name}}
         </a>
         @endforeach
-        <div class="group px-4">
+        <div class="group px-4 hidden md:block">
             <a href="#" class="megamenu">
                 <i class="fa-solid fa-bars"></i>
             </a>
@@ -115,8 +115,3 @@
         </div>
     </div>
 </section>
-
-{{-- <section class="megamenu absolute w-full">
-    
-    
-</section> --}}

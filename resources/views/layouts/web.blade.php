@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{asset('frontend/plugins/fontawesome6/css/all.min.css')}}">
     
     @stack('css')
+
+
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

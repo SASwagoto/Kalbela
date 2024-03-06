@@ -6,24 +6,24 @@
 
 @section('content')
     <section class="my-4 w-full">
-        <div class="container mx-auto flex justify-center gap-2">
-            <div class="flex w-2/4 flex-col gap-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-center gap-2">
+            <div class="flex md:w-2/4 flex-col gap-4">
                 @foreach ($firstPlace as $feature)
-                <a href="{{ route('singleNews', ['category' => $feature->cslug, 'slug' => $feature->nslug]) }}" class="headnews flex gap-2 rounded-md border p-2">
-                    <div class="w-3/5 overflow-hidden rounded-md">
+                <a href="{{ route('singleNews', ['category' => $feature->cslug, 'slug' => $feature->nslug]) }}" class="headnews flex md:flex-row flex-col gap-2 rounded-md border p-2">
+                    <div class="w-full md:w-3/5 overflow-hidden rounded-md">
                         @if ($feature->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$feature->feature_photo)}}" alt="">
                         @else
                             <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
                         @endif
                     </div>
-                    <div class="w-2/5">
-                        <h2 class="text-3xl font-bold">{{$feature->headline}}</h2>
+                    <div class="w-full md:w-2/5">
+                        <h2 class="text-xl md:text-3xl font-bold">{{$feature->headline}}</h2>
                         <p class="mt-2 text-sm">{!! Str::of($feature->article)->words(18, ' ...') !!}</p>
                     </div>
                 </a>
                 @endforeach
-                <div class="grid grid-cols-3 gap-4 rounded-md border p-2">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 rounded-md border p-2">
                     @foreach ($thirdPlace as $third)
                     <a href="{{ route('singleNews', ['category' => $third->cslug, 'slug' => $third->nslug]) }}" class="flex flex-col gap-2">
                         <div class="w-full overflow-hidden rounded-md">
@@ -34,13 +34,13 @@
                             @endif
                         </div>
                         <div class="">
-                            <h3 class="text-lg font-bold">{{$third->headline}}</h3>
+                            <h3 class="text-md md:text-lg font-bold">{{$third->headline}}</h3>
                         </div>
                     </a>
                     @endforeach
                 </div>
             </div>
-            <div class="w-1/4">
+            <div class="w-full md:w-1/4">
                 <div class="flex flex-col rounded-md border p-2">
                     @foreach ($secondPlace as $second)
                     <a href="{{ route('singleNews', ['category' => $second->cslug, 'slug' => $second->nslug]) }}" class="flex flex-col gap-1 border-b py-2">
@@ -73,7 +73,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="w-1/4">
+            <div class="hidden md:block w-full md:w-1/4">
                 <div class="flex w-full flex-col gap-6">
                     @if ($ad1 != null)
                     <a href="{{$ad1->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
@@ -410,8 +410,8 @@
         </div>
     </section> --}}
     <section class="w-full my-5">
-        <div class="container flex justify-between gap-6 mx-auto">
-            <div class="w-3/4 flex flex-col pb-2 border-b">
+        <div class="container flex justify-between gap-6 mx-auto px-2">
+            <div class="w-full md:w-3/4 flex flex-col pb-2 border-b">
                 <div class="flex justify-between items-center py-2 border-b-4 border-black">
                     <div class="flex justify-start items-center gap-4">
                         <i class="fa-solid fa-landmark fa-xl"></i>
@@ -421,9 +421,9 @@
                         <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
                     </a>
                 </div>
-                <div class="grid grid-cols-5 gap-4 mt-4">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
                     @foreach ($country as $item)
-                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-3 rounded-md border">
+                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-2 rounded-md border">
                         <div class="w-full overflow-hidden">
                             @if ($item->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$item->feature_photo)}}" alt="">
@@ -431,14 +431,14 @@
                             <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
                             @endif
                         </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">{{$item->headline}}</h2>
+                        <div class="px-2">
+                            <h2 class="text-md md:text-lg font-bold">{{$item->headline}}</h2>
                         </div>
                     </a>
                     @endforeach
                 </div>
             </div>
-            <div class="w-1/4">
+            <div class="w-full hidden md:block md:w-1/4">
                 <div class="w-full flex flex-col border p-4 rounded-md">
                     <div class="m-4 border-l-4 border-yellow-200">
                         <h3 class="text-xl font-bold ms-4">আমার এলাকার সংবাদ</h3>
@@ -462,8 +462,8 @@
     </section>
 
     <section class="w-full my-5">
-        <div class="container flex justify-between gap-6 mx-auto">
-            <div class="w-3/4 flex flex-col pb-2 border-b">
+        <div class="container flex flex-col md:flex-row justify-between gap-6 mx-auto px-2">
+            <div class="w-full md:w-3/4 flex flex-col pb-2 border-b">
                 <div class="flex justify-between items-center py-2 border-b-4 border-black">
                     <div class="flex justify-start items-center gap-4">
                         <i class="fa-brands fa-old-republic fa-xl"></i>
@@ -473,7 +473,7 @@
                         <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
                     </a>
                 </div>
-                <div class="grid grid-cols-5 gap-4 mt-4">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
                     @foreach ($politics as $item)
                     <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-3 rounded-md border">
                         <div class="w-full overflow-hidden">
@@ -483,14 +483,14 @@
                             <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
                             @endif
                         </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">{{$item->headline}}</h2>
+                        <div class="px-2">
+                            <h2 class="text-md md:text-lg font-bold">{{$item->headline}}</h2>
                         </div>
                     </a>
                     @endforeach
                 </div>
             </div>
-            <div class="w-1/4">
+            <div class="w-full md:w-1/4">
                 @if ($ad4 != null)
                     <a href="{{$ad4->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
                         <img class="w-full" src="{{asset('advertise/'.$ad4->image)}}" alt="{{$ad4->title}}">
@@ -501,8 +501,8 @@
     </section>
 
     <section class="w-full my-5">
-        <div class="container flex justify-between gap-6 mx-auto">
-            <div class="w-3/4 flex flex-col pb-2 border-b">
+        <div class="container flex flex-col md:flex-row justify-between gap-6 mx-auto p-2">
+            <div class="w-full md:w-3/4 flex flex-col pb-2 border-b">
                 <div class="flex justify-between items-center py-2 border-b-4 border-black">
                     <div class="flex justify-start items-center gap-4">
                         <i class="fa-solid fa-landmark fa-xl"></i>
@@ -512,7 +512,7 @@
                         <i class="fa-solid fa-arrow-right ms-2 rounded-full border-2 border-black p-2"></i></span>
                     </a>
                 </div>
-                <div class="grid grid-cols-5 gap-4 mt-4">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
                     @foreach ($nationals as $item)
                     <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="group flex flex-col gap-3 rounded-md border">
                         <div class="w-full overflow-hidden">
@@ -522,14 +522,14 @@
                             <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
                             @endif
                         </div>
-                        <div class="p-2">
-                            <h2 class="text-2xl font-bold mb-4">{{$item->headline}}</h2>
+                        <div class="px-2">
+                            <h2 class="text-md md:text-lg font-bold">{{$item->headline}}</h2>
                         </div>
                     </a>
                     @endforeach
                 </div>
             </div>
-            <div class="w-1/4">
+            <div class="w-full md:w-1/4">
                 @if ($ad5 != null)
                     <a href="{{$ad5->add_url}}" class="w-full flex items-center overflow-hidden border rounded-md">
                         <img class="w-full" src="{{asset('advertise/'.$ad5->image)}}" alt="{{$ad5->title}}">

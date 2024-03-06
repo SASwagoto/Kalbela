@@ -1,6 +1,6 @@
 <section class="w-full py-2 border-b border-t">
-    <div class="container mx-auto">
-        <div class="flex justify-between items-center">
+    <div class="md:container mx-10 md:mx-auto">
+        <div class="flex no-scrollbar overflow-x-auto whitespace-nowrap justify-between wrap items-center">
             <div class="footer_logo w-40">
                 @if ($siteInfo->site_logo)
                 <img class="w-full" src="{{asset('uploads/'.$siteInfo->site_logo)}}" alt="Logo">
@@ -12,48 +12,34 @@
                 <a href="{{route('homepage')}}}">
                     নতুন খবর
                 </a>
-                
-                <a href="#">
-                    গোপনীয়তার নীতি
+                @foreach ($pages as $page)
+                <a href="{{route('homepage')}}}">
+                    নতুন খবর
                 </a>
-                <a href="">
-                    শর্তাবলি
-                </a>
-                <a href="">
-                    মন্তব্য প্রকাশের নীতিমালা
-                </a>
-                <a href="#">
-                    বাংলা কনভার্টার
-                </a>
-                <a href="">
-                    বিজ্ঞাপন
-                </a>
-                <a href="">
-                    যোগাযোগ
-                </a>
+                @endforeach
             </div>
         </div>
     </div>
 </section>
 <section class="py-5 border-b">
-    <div class="container mx-auto">
-        <div class="flex justify-between">
-            <div class="w-1/2 pe-10">
+    <div class="md:container mx-10 md:mx-auto">
+        <div class="flex flex-col md:flex-row justify-center md:justify-between">
+            <div class="w-full md:w-1/2 md:pe-10">
                 <h3 class="text-lg font-bold">সম্পাদক ও প্রকাশক : সন্তোষ শর্মা । বিভাগীয় প্রধান (অনলাইন): পলাশ মাহমুদ</h3>
-                <p>{{$siteInfo->address}}</p>
+                <span>{{$siteInfo->address}}</span>
             </div>
-            <div class="w-1/2 text-end">
-                <p>ফোন : {{$siteInfo->phone_a}}, {{$siteInfo->phone_b}} ।<br>
-                    <p>ফ্যাক্স : {{$siteInfo->fax_a}}, {{$siteInfo->fax_b}} । ই-মেইল: {{$siteInfo->email}} <br>
+            <div class="w-full md:w-1/2 text-center md:text-end">
+                <span>ফোন : {{$siteInfo->phone_a}}, {{$siteInfo->phone_b}} ।<br>
+                    ফ্যাক্স : {{$siteInfo->fax_a}}, {{$siteInfo->fax_b}} । ই-মেইল: {{$siteInfo->email}} <br>
                     বিজ্ঞাপন বিভাগ: ফোন: {{$siteInfo->adv_phone_a}}, {{$siteInfo->adv_phone_b}} । ই-মেইল: {{$siteInfo->adv_email}} <br>
-                    সার্কুলেশন : ফোন: {{$siteInfo->mobile_a}}।</p>
+                    সার্কুলেশন : ফোন: {{$siteInfo->mobile_a}}।</span>
             </div>
         </div>
     </div>
 </section>
 <section class="w-full py-5">
-    <div class="container mx-auto">
-        <div class="w-full flex justify-between items-center">
+    <div class="md:container mx-10 md:mx-auto">
+        <div class="w-full flex flex-col md:flex-row justify-between gap-6">
             <div class="social_icon flex flex-col items-center gap-2">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-circle-nodes fa-xl"></i>
@@ -74,15 +60,15 @@
                     </a>
                 </div>
             </div>
-            <div class="flex justify-end gap-10">
-                <div class=" flex flex-col gap-2">
+            <div class="flex justify-between gap-4 md:gap-10">
+                <div class="w-1/2 flex flex-col gap-2">
                     <div class="flex items-center gap-2">
                         <i class="fa-regular fa-envelope-open fa-xl"></i>
                         <h2 class="text-xl font-bold">| নিউজলেটার</h2>
                     </div>
-                    <p class="w-60">নতুন খবর থেকে প্রতিদিন মেইলে আপডেট পেতে সাবস্ক্রাইব করুন।</p>
+                    <span class="md:w-60">নতুন খবর থেকে প্রতিদিন মেইলে আপডেট পেতে সাবস্ক্রাইব করুন।</span>
                 </div>
-                <div class="flex flex-col justify-end gap-2">
+                <div class="w-1/2 flex flex-col gap-2">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-mobile-screen-button fa-xl"></i>
                         <h2 class="text-xl font-bold">| মোবাইল এপস</h2>
@@ -101,8 +87,8 @@
     </div>
 </section>
 <footer class="w-full py-5">
-    <div  class="container mx-auto flex justify-between">
-        <p>স্বত্ব &copy; {{$siteInfo->copyright}} {{bangla_date(time(), 'en', 'y')}}</p>
-        <p>{{$siteInfo->footer_credit}}</p>
+    <div  class="md:container mx-10 md:mx-auto flex flex-col-reverse md:flex-row justify-between">
+        <span>স্বত্ব &copy; {{$siteInfo->copyright}} {{bangla_date(time(), 'en', 'y')}}</span>
+        <span>{{$siteInfo->footer_credit}}</span>
     </div>
 </footer>
