@@ -25,7 +25,7 @@
     <div class="md:container mx-10 md:mx-auto">
         <div class="flex flex-col md:flex-row justify-center md:justify-between">
             <div class="w-full md:w-1/2 md:pe-10">
-                <h3 class="text-lg font-bold">সম্পাদক ও প্রকাশক : সন্তোষ শর্মা । বিভাগীয় প্রধান (অনলাইন): পলাশ মাহমুদ</h3>
+                <h3 class="text-lg font-bold">সম্পাদক ও প্রকাশক মোঃ সাদিকুর রহমান বকুল</h3>
                 <span>{{$siteInfo->address}}</span>
             </div>
             <div class="w-full md:w-1/2 text-center md:text-end">

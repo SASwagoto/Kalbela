@@ -19,7 +19,7 @@
 
             <div class="container absolute right-0 left-0 px-4 mx-auto border hidden group-hover:block rounded-md bg-white z-50 shadow-xl">
                 <div class="border-b w-full py-3 flex items-center">
-                    <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
+                    <h3 class="text-lg font-semibold">{{bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
                 </div>
                 <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
                     @foreach ($menu as $item)
@@ -82,7 +82,7 @@
             </a>
             <div class="container absolute right-0 left-0 px-4 mx-auto border hidden group-hover:block rounded-md bg-white z-50 shadow-xl">
                 <div class="border-b w-full py-3 flex items-center">
-                    <h3 class="text-lg font-semibold">{{banglaDay(date('D')).', '.bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
+                    <h3 class="text-lg font-semibold">{{bangla_date(time(), 'en').', '.bangla_date(time(), 'bn')}}</h3>
                 </div>
                 <div class="grid grid-cols-7 gap-3 my-2 font-semibold">
                     @foreach ($menu as $item)

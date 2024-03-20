@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($ads as $key => $ad)
+                @foreach ($ads as $key => $ad)
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>
@@ -56,12 +56,7 @@
                         <div class="flex gap-2 justify-end"></div>
                     </td>
                 </tr>
-                @empty
-                    <tr>
-                        <td colspan="5">No data found</td>
-                    </tr>
-                @endforelse
-               
+                @endforeach
             </tbody>
         </table>
     </div>

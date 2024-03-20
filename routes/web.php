@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WebStoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::get('/news/{slug}', [HomeController::class, 'newsBy'])->name('newsBy');
 Route::get('/news/{category}/{slug}', [HomeController::class, 'singleNews'])->name('singleNews');
 Route::get('/pages/{slug}', [FrontendController::class, 'pageView'])->name('pages.view');
 Route::get('/search', [FrontendController::class, 'search'])->name('search');
+Route::get('/stories', [WebStoriesController::class, 'index'])->name('stories');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

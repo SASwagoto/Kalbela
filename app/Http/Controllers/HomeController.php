@@ -95,7 +95,7 @@ class HomeController extends Controller
             ->leftjoin('categories as parent', 'c.parent_id', 'parent.id')
             ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
             ->paginate(20);
-        return view('frontend.allnews', compact('newses', 'category'));
+        return view('frontend.latest', compact('newses', 'category'));
     }
 
     public function newsBy($slug)
@@ -117,8 +117,22 @@ class HomeController extends Controller
                 ->orWhere('c.parent_id', $catId);
             })
         ->select('posts.headline', 'posts.published_at', 'posts.feature_photo', 'posts.slug as nslug', 'c.slug as cslug', 'parent.slug as pslug')
-        ->paginate(20);
-        return view('frontend.allnews', compact('newses', 'category'));
+        ->get();
+        
+        $totalPosts = $newses->count();
+        if ($totalPosts >= 1) {
+            // Get the latest post as first place
+            $firstPlace = $newses->take(1);
+            // Get posts from second to fifth position as second place
+            $secondPlace = $newses->slice(1, 4);
+            // Get all other posts as third place
+            $thirdPlace = $newses->slice(5);
+        } else {
+            $firstPlace = collect(); // Empty collection if no posts found
+            $secondPlace = collect();
+            $thirdPlace = collect();
+        }
+        return view('frontend.newsbycategory', compact('firstPlace', 'secondPlace', 'thirdPlace', 'category'));
     }
 
     public function singleNews($category, $slug)

@@ -1,5 +1,9 @@
 @extends('layouts.web')
 
+@section('title')
+{{$news->headline}}
+@endsection
+
 @push('css')
 
     <style>
@@ -76,8 +80,10 @@
                     {{-- <div class="flex justify-end text-3xl my-2">{!! $shareButtons !!}</div> --}}
                 </div>
                 <div class="feature_photo flex items-center py-2 px-10">
-                    @if ($news->feature_photo)
-                        <img class="w-full" src="{{asset('media/'.$news->feature_photo)}}" alt="">
+                    @if ($news->cslug != 'video')
+                        @if ($news->feature_photo)
+                            <img class="w-full" src="{{asset('media/'.$news->feature_photo)}}" alt="">
+                        @endif
                     @endif
                 </div>
                 <div class="article px-3 md:px-0">

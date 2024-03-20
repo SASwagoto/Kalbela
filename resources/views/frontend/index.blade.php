@@ -1,5 +1,9 @@
 @extends('layouts.web')
 
+@section('title')
+    নতুনখবর
+@endsection
+
 @push('css')
     <link rel="stylesheet" href="{{ asset('frontend/plugins/swiperjs/swiper-bundle.min.css') }}">
 @endpush
@@ -9,7 +13,7 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-center gap-2">
             <div class="flex md:w-2/4 flex-col gap-4">
                 @foreach ($firstPlace as $feature)
-                <a href="{{ route('singleNews', ['category' => $feature->cslug, 'slug' => $feature->nslug]) }}" class="headnews flex md:flex-row flex-col gap-2 rounded-md border p-2">
+                <a href="{{ route('singleNews', ['category' => $feature->cslug, 'slug' => $feature->nslug]) }}" class="headnews group flex md:flex-row flex-col gap-2 rounded-md border p-2">
                     <div class="w-full md:w-3/5 overflow-hidden rounded-md">
                         @if ($feature->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$feature->feature_photo)}}" alt="">
@@ -18,14 +22,14 @@
                         @endif
                     </div>
                     <div class="w-full md:w-2/5">
-                        <h2 class="text-xl md:text-3xl font-bold">{{$feature->headline}}</h2>
+                        <h2 class="text-xl md:text-3xl font-bold group-hover:text-blue-500">{{$feature->headline}}</h2>
                         <p class="mt-2 text-sm">{!! Str::of($feature->article)->words(18, ' ...') !!}</p>
                     </div>
                 </a>
                 @endforeach
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 rounded-md border p-2">
                     @foreach ($thirdPlace as $third)
-                    <a href="{{ route('singleNews', ['category' => $third->cslug, 'slug' => $third->nslug]) }}" class="flex flex-col gap-2">
+                    <a href="{{ route('singleNews', ['category' => $third->cslug, 'slug' => $third->nslug]) }}" class="group flex flex-col gap-2">
                         <div class="w-full overflow-hidden rounded-md">
                             @if ($third->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$third->feature_photo)}}" alt="">
@@ -34,7 +38,7 @@
                             @endif
                         </div>
                         <div class="">
-                            <h3 class="text-md md:text-lg font-bold">{{$third->headline}}</h3>
+                            <h3 class="text-md md:text-lg font-bold group-hover:text-blue-500">{{$third->headline}}</h3>
                         </div>
                     </a>
                     @endforeach
@@ -43,7 +47,7 @@
             <div class="w-full md:w-1/4">
                 <div class="flex flex-col rounded-md border p-2">
                     @foreach ($secondPlace as $second)
-                    <a href="{{ route('singleNews', ['category' => $second->cslug, 'slug' => $second->nslug]) }}" class="flex flex-col gap-1 border-b py-2">
+                    <a href="{{ route('singleNews', ['category' => $second->cslug, 'slug' => $second->nslug]) }}" class="group flex flex-col gap-1 border-b py-2">
                         <div class="overflow-hidden rounded-md">
                             @if ($second->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$second->feature_photo)}}" alt="">
@@ -52,13 +56,13 @@
                             @endif
                         </div>
                         <div class="mt-1">
-                            <h3 class="text-lg font-bold">{{$second->headline}}</h3>
+                            <h3 class="text-lg font-bold group-hover:text-blue-500">{{$second->headline}}</h3>
                         </div>
                     </a>
                     @endforeach
                     
                     @foreach ($fourthPlace as $fourth)
-                    <a href="{{ route('singleNews', ['category' => $fourth->cslug, 'slug' => $fourth->nslug]) }}" class="flex gap-2 border-b py-2">
+                    <a href="{{ route('singleNews', ['category' => $fourth->cslug, 'slug' => $fourth->nslug]) }}" class="group flex gap-2 border-b py-2">
                         <div class="w-1/3 overflow-hidden">
                             @if ($fourth->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$fourth->feature_photo)}}" alt="">
@@ -67,7 +71,7 @@
                             @endif
                         </div>
                         <div class="mt-1 w-2/3">
-                            <h3 class="text-lg font-bold">{{$second->headline}}</h3>
+                            <h3 class="text-lg font-bold group-hover:text-blue-500">{{$second->headline}}</h3>
                         </div>
                     </a>
                     @endforeach
@@ -90,6 +94,26 @@
                         <img class="w-full" src="{{asset('advertise/'.$ad3->image)}}" alt="{{$ad3->title}}">
                     </a>
                     @endif
+                    <div class="border p-2">
+                        <div class="flex gap-4 border-b-2">
+                            <!-- Tab buttons -->
+                            <button class="tab-btn active" data-target="tab1">Tab 1</button>
+                            <button class="tab-btn" data-target="tab2">Tab 2</button>
+                            <button class="tab-btn" data-target="tab3">Tab 3</button>
+                        </div>
+                        <!-- Tab contents -->
+                        <div class="mt-4">
+                            <div id="tab1" class="tab-content">
+                                <p>This is the content of Tab 1</p>
+                            </div>
+                            <div id="tab2" class="hidden tab-content">
+                                <p>This is the content of Tab 2</p>
+                            </div>
+                            <div id="tab3" class="hidden tab-content">
+                                <p>This is the content of Tab 3</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,16 +134,17 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($videonews as $item)
-                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="swiper-slide flex flex-col justify-center">
-                        <div class="overflow-hidden rounded-md">
+                    <a href="{{ route('singleNews', ['category' => $item->cslug, 'slug' => $item->nslug]) }}" class="swiper-slide group flex flex-col justify-center">
+                        <div class="overflow-hidden rounded-md relative flex items-center justify-center">
                             @if ($item->feature_photo)
                             <img class="w-full group-hover:opacity-75" src="{{asset('media/'.$item->feature_photo)}}" alt="">
                             @else
                             <img class="w-full" src="{{asset('frontend/images/preview.jpg')}}" alt="">
                             @endif
+                            <div class="absolute text-5xl text-white group-hover:text-red-600 duration-300"><i class="fa-brands fa-youtube"></i></div>
                         </div>
                         <div class="mt-1">
-                            <h3 class="text-lg font-bold">{{$item->headline}}</h3>
+                            <h3 class="text-lg font-bold group-hover:text-blue-500">{{$item->headline}}</h3>
                         </div>
                     </a>
                     @endforeach
@@ -432,7 +457,7 @@
                             @endif
                         </div>
                         <div class="px-2">
-                            <h2 class="text-md md:text-lg font-bold">{{$item->headline}}</h2>
+                            <h2 class="text-md md:text-lg font-bold group-hover:text-blue-500">{{$item->headline}}</h2>
                         </div>
                     </a>
                     @endforeach
@@ -489,7 +514,7 @@
                             @endif
                         </div>
                         <div class="px-2">
-                            <h2 class="text-md md:text-lg font-bold">{{$item->headline}}</h2>
+                            <h2 class="text-md md:text-lg font-bold group-hover:text-blue-500">{{$item->headline}}</h2>
                         </div>
                     </a>
                     @endforeach
@@ -528,7 +553,7 @@
                             @endif
                         </div>
                         <div class="px-2">
-                            <h2 class="text-md md:text-lg font-bold">{{$item->headline}}</h2>
+                            <h2 class="text-md md:text-lg font-bold group-hover:text-blue-500">{{$item->headline}}</h2>
                         </div>
                     </a>
                     @endforeach
@@ -577,6 +602,31 @@
                     error: function(xhr){
                         
                     }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll(".tab-btn");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add("hidden");
+                    });
+                    // Remove 'active' class from all tab buttons
+                    tabs.forEach(tab => {
+                        tab.classList.remove("active");
+                    });
+
+                    const target = this.getAttribute("data-target");
+                    // Show the target tab content
+                    document.getElementById(target).classList.remove("hidden");
+                    // Add 'active' class to the clicked tab button
+                    this.classList.add("active");
                 });
             });
         });
